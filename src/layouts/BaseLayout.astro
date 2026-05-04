@@ -1,0 +1,94 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import club from '../data/club.json';
+import '../styles/global.css';
+
+const { title, description, image, noindex } = Astro.props;
+const pageTitle = title ? `${title} | Bellshill Curling Club` : 'Bellshill Curling Club — Curling in Lanarkshire, Hamilton Scotland';
+const pageDescription =
+  description ?? 'Bellshill Curling Club — a friendly curling club in Lanarkshire, playing at Hamilton Ice Rink. New members welcome. Join curling in Scotland.';
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.bellshillcurlingclub.com';
+const canonical = new URL(Astro.url.pathname, Astro.site ?? siteUrl).toString();
+const ogImage = new URL(image ?? '/images/og-default.jpg', Astro.site ?? siteUrl).toString();
+
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsClub',
+  name: club.name,
+  sport: 'Curling',
+  foundingDate: String(club.founded),
+  url: siteUrl,
+  email: club.email,
+  logo: `${siteUrl}/favicon.svg`,
+  image: ogImage,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'John Street',
+    addressLocality: 'Hamilton',
+    addressRegion: 'South Lanarkshire',
+    postalCode: 'ML3 7EJ',
+    addressCountry: 'GB',
+  },
+  location: {
+    '@type': 'Place',
+    name: club.rink,
+    address: club.address,
+  },
+  areaServed: ['Lanarkshire', 'Hamilton', 'Bellshill', 'Scotland'],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'membership enquiries',
+    email: club.email,
+    availableLanguage: 'English',
+  },
+};
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={pageDescription} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Bellshill Curling Club" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Theme + icons -->
+    <meta name="theme-color" content="#1f3a5f" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap.xml" />
+
+    <title>{pageTitle}</title>
+
+    <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
+  </head>
+  <body class="min-h-screen flex flex-col bg-white text-slate-800 font-sans antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:p-3 focus:bg-stone focus:text-white focus:rounded"
+    >
+      Skip to content
+    </a>
+    <Header />
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

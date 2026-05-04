@@ -1,0 +1,23 @@
+[
+  {
+    "date": "2026-04-02",
+    "opponent": "Hamilton CC",
+    "us": 7,
+    "them": 5,
+    "competition": "League"
+  },
+  {
+    "date": "2026-03-19",
+    "opponent": "Lanark CC",
+    "us": 4,
+    "them": 8,
+    "competition": "Friendly"
+  },
+  {
+    "date": "2026-03-05",
+    "opponent": "Stirling CC",
+    "us": 6,
+    "them": 6,
+    "competition": "League"
+  }
+]

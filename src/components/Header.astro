@@ -1,0 +1,39 @@
+---
+const links = [
+  { href: '/',         label: 'Home' },
+  { href: '/history',  label: 'History' },
+  { href: '/fixtures', label: 'Fixtures' },
+  { href: '/scores',   label: 'Scores' },
+  { href: '/contact',  label: 'Contact' },
+];
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+<header class="bg-stone text-white">
+  <nav
+    class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4"
+    aria-label="Main navigation"
+  >
+    <a href="/" class="font-bold text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">
+      Bellshill Curling Club
+    </a>
+    <ul class="flex flex-wrap gap-1">
+      {links.map((l) => {
+        const current = path === l.href.replace(/\/$/, '') || (l.href === '/' && path === '/');
+        return (
+          <li>
+            <a
+              href={l.href}
+              class:list={[
+                'px-3 py-2 rounded hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white',
+                current && 'bg-white/15',
+              ]}
+              aria-current={current ? 'page' : undefined}
+            >
+              {l.label}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </nav>
+</header>

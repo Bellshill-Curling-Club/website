@@ -1,0 +1,23 @@
+[
+  {
+    "date": "2026-10-12",
+    "time": "19:00",
+    "opponent": "Hamilton CC",
+    "venue": "Lanarkshire Ice Rink",
+    "competition": "League"
+  },
+  {
+    "date": "2026-10-26",
+    "time": "20:30",
+    "opponent": "Lanark CC",
+    "venue": "Lanarkshire Ice Rink",
+    "competition": "Friendly"
+  },
+  {
+    "date": "2026-11-09",
+    "time": "19:00",
+    "opponent": "Stirling CC",
+    "venue": "Lanarkshire Ice Rink",
+    "competition": "League"
+  }
+]

@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import fixtures from '../data/fixtures.json';
+
+const fmt = (d) =>
+  new Date(d).toLocaleDateString('en-GB', {
+    weekday: 'short',
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  });
+
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+const upcoming = fixtures
+  .filter((f) => new Date(f.date) >= today)
+  .sort((a, b) => a.date.localeCompare(b.date));
+---
+<BaseLayout
+  title="Fixtures"
+  description="Upcoming fixtures for Bellshill Curling Club."
+>
+  <section class="max-w-4xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-bold text-stone mb-6">Upcoming Fixtures</h1>
+
+    {upcoming.length === 0 ? (
+      <p>No fixtures currently scheduled. Please check back soon.</p>
+    ) : (
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead class="bg-ice text-stone">
+            <tr>
+              <th scope="col" class="p-3">Date</th>
+              <th scope="col" class="p-3">Time</th>
+              <th scope="col" class="p-3">Opponent</th>
+              <th scope="col" class="p-3">Venue</th>
+              <th scope="col" class="p-3">Competition</th>
+            </tr>
+          </thead>
+          <tbody>
+            {upcoming.map((f) => (
+              <tr class="border-b border-slate-200">
+                <td class="p-3 whitespace-nowrap">{fmt(f.date)}</td>
+                <td class="p-3 whitespace-nowrap">{f.time}</td>
+                <td class="p-3">{f.opponent}</td>
+                <td class="p-3">{f.venue}</td>
+                <td class="p-3">{f.competition}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )}
+
+    <p class="mt-8 text-sm text-slate-500">
+      Fixtures are kept up to date by the match secretary.
+      See the <a class="underline" href="/scores">scores page</a> for past results.
+    </p>
+  </section>
+</BaseLayout>

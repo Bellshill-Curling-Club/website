@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import club from '../data/club.json';
+
+// --- Formspree configuration ---
+// 1. Sign up at https://formspree.io/
+// 2. Create a new form and copy its endpoint URL
+//    (e.g. https://formspree.io/f/abcdwxyz)
+// 3. Replace the placeholder below with your endpoint.
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_ME';
+---
+<BaseLayout
+  title="Contact Us"
+  description="Get in touch with Bellshill Curling Club."
+>
+  <section class="max-w-xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-bold text-stone mb-2">Contact Us</h1>
+    <p class="mb-6">
+      Interested in joining or have a question? Send us a message and a
+      committee member will get back to you. You can also email us directly at
+      <a class="underline" href={`mailto:${club.email}`}>{club.email}</a>.
+    </p>
+
+    <form
+      id="contact-form"
+      action={FORMSPREE_ENDPOINT}
+      method="POST"
+      class="space-y-4"
+      novalidate
+    >
+      <div>
+        <label for="name" class="block font-medium">Name</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          required
+          minlength="2"
+          autocomplete="name"
+          class="mt-1 w-full border border-slate-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-stone"
+        />
+      </div>
+
+      <div>
+        <label for="email" class="block font-medium">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+          autocomplete="email"
+          class="mt-1 w-full border border-slate-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-stone"
+        />
+      </div>
+
+      <div>
+        <label for="message" class="block font-medium">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          required
+          minlength="10"
+          class="mt-1 w-full border border-slate-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-stone"
+        ></textarea>
+      </div>
+
+      <!-- Honeypot field for spam bots; real users won't see or fill this -->
+      <input
+        type="text"
+        name="_gotcha"
+        class="hidden"
+        tabindex="-1"
+        autocomplete="off"
+        aria-hidden="true"
+      />
+
+      <button
+        type="submit"
+        class="bg-accent text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-stone transition"
+      >
+        Send message
+      </button>
+
+      <p
+        id="form-status"
+        role="status"
+        aria-live="polite"
+        class="text-sm min-h-[1.25rem]"
+      ></p>
+    </form>
+  </section>
+
+  <script is:inline>
+    (function () {
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('form-status');
+      if (!form || !status) return;
+
+      const setStatus = (message, kind) => {
+        status.textContent = message;
+        status.className = 'text-sm min-h-[1.25rem]';
+        if (kind === 'ok') status.classList.add('text-green-700');
+        if (kind === 'err') status.classList.add('text-red-700');
+      };
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        setStatus('', null);
+
+        if (!form.checkValidity()) {
+          setStatus('Please complete all fields correctly.', 'err');
+          form.reportValidity();
+          return;
+        }
+
+        if (form.action.includes('REPLACE_ME')) {
+          setStatus(
+            'Form is not configured yet. Please email the club directly.',
+            'err',
+          );
+          return;
+        }
+
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' },
+          });
+
+          if (res.ok) {
+            form.reset();
+            setStatus('Thanks! Your message has been sent.', 'ok');
+          } else {
+            const data = await res.json().catch(() => ({}));
+            const msg =
+              (data && data.errors && data.errors[0] && data.errors[0].message) ||
+              'Sorry, something went wrong. Please email us instead.';
+            setStatus(msg, 'err');
+          }
+        } catch (_) {
+          setStatus('Network error. Please try again later.', 'err');
+        }
+      });
+    })();
+  </script>
+</BaseLayout>

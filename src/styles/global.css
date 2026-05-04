@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Lightweight prose styles for Markdown / long-form pages */
+.prose h1 { @apply text-3xl font-bold text-stone mt-2 mb-4; }
+.prose h2 { @apply text-2xl font-semibold text-stone mt-8 mb-3; }
+.prose h3 { @apply text-xl font-semibold text-stone mt-6 mb-2; }
+.prose p  { @apply leading-relaxed mb-4; }
+.prose ul { @apply list-disc pl-6 mb-4; }
+.prose a  { @apply text-stone underline hover:text-accent; }

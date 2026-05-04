@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+import club from '../data/club.json';
+---
+<BaseLayout title="Home" description="Friendly curling club in Lanarkshire — new members welcome.">
+  <section class="bg-ice">
+    <div class="max-w-6xl mx-auto px-4 py-20 text-center">
+      <h1 class="text-4xl sm:text-5xl font-bold text-stone">
+        Welcome to {club.name}
+      </h1>
+      <p class="mt-4 text-lg max-w-2xl mx-auto">
+        A friendly curling club based in Lanarkshire, welcoming players of all
+        abilities since {club.founded}.
+      </p>
+      <div class="mt-8">
+        <Button href="/contact">Join the club</Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-16 grid gap-6 md:grid-cols-3">
+    <Card title="Where we play">
+      <p>{club.rink}<br />{club.address}</p>
+    </Card>
+    <Card title="Season">
+      <p>We curl from {club.season} every year.</p>
+    </Card>
+    <Card title="New to curling?">
+      <p>
+        No experience required. Get in touch and we'll arrange a taster session
+        with one of our coaches.
+      </p>
+    </Card>
+  </section>
+
+  <section class="bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 py-16 grid gap-8 md:grid-cols-2 items-center">
+      <div>
+        <h2 class="text-2xl font-bold text-stone mb-3">About the club</h2>
+        <p class="mb-3">
+          Bellshill Curling Club has been part of Lanarkshire's sporting
+          community for over 150 years. We field teams across local and
+          regional competitions, and pride ourselves on being a welcoming home
+          for both seasoned curlers and complete beginners.
+        </p>
+        <p>
+          <a class="underline text-stone hover:text-accent" href="/history">
+            Read our full history →
+          </a>
+        </p>
+      </div>
+      <div>
+        <Card title="Quick links">
+          <ul class="space-y-2">
+            <li><a class="underline" href="/fixtures">Upcoming fixtures</a></li>
+            <li><a class="underline" href="/scores">Recent results</a></li>
+            <li><a class="underline" href="/contact">Contact the secretary</a></li>
+          </ul>
+        </Card>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
