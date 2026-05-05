@@ -75,9 +75,9 @@
     "season": "2025-26",
     "type": "knockout",
     "matches": [
-      { "date": "15th Feb 2025", "round": "Semi-final", "team1": "David Buchanan", "score1": "6",          "team2": "Iain Buchanan", "score2": "8"          },
-      { "date": "15th Feb 2025", "round": "Semi-final", "team1": "John Wilson",    "score1": "6",          "team2": "Sarah Lean",    "score2": "4"          },
-      { "date": "15th Mar 2025", "round": "Final",      "team1": "Iain Buchanan",  "score1": "4 (4 ends)", "team2": "John Wilson",   "score2": "4 (3 ends)" }
+      { "date": "15th Feb 2025", "round": "Semi-final", "team1": "David Buchanan", "score1": "6",          "team2": "Iain Buchanan", "score2": "8", "winner": 2          },
+      { "date": "15th Feb 2025", "round": "Semi-final", "team1": "John Wilson",    "score1": "6",          "team2": "Sarah Lean",    "score2": "4", "winner": 1          },
+      { "date": "15th Mar 2025", "round": "Final",      "team1": "Iain Buchanan",  "score1": "4 (4 ends)", "team2": "John Wilson",   "score2": "4 (3 ends)", "winner": 1 }
     ]
   },
   {

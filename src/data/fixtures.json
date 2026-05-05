@@ -1,23 +1,114 @@
 [
   {
-    "date": "2026-10-12",
-    "time": "19:00",
-    "opponent": "Hamilton CC",
-    "venue": "Lanarkshire Ice Rink",
-    "competition": "League"
+    "slug": "singles",
+    "name": "Singles Competition",
+    "format": "Mini-leagues of three players, then play-off. Each game = three ends, three stones each, no sweeping. First shot is a free guard. 3 points for a win, 1 for a draw; ties decided on shot difference, then ends won.",
+    "rinks": [
+      { "label": "League 1", "players": ["L Haggart", "A G Turner", "J Cowie"] },
+      { "label": "League 2", "players": ["E Roche", "E Ward", "M Gray"] },
+      { "label": "League 3", "players": ["I Buchanan", "S Turner", "J Ward"] },
+      { "label": "League 4", "players": ["D Buchanan", "A P Turner", "E Haggart"] },
+      { "label": "League 5", "players": ["G Haggart", "J Buchanan", "D Haggart"] }
+    ],
+    "reserves": [],
+    "fixtures": [
+      { "date": "2025-10-10", "time": "17:30", "match": "League 1: A v B (Haggart v Turner)" },
+      { "date": "2025-10-10", "time": "17:45", "match": "League 2: A v B (Roche v Ward)" },
+      { "date": "2025-10-10", "time": "18:00", "match": "League 3: A v B (Buchanan v Turner)" },
+      { "date": "2025-10-10", "time": "18:15", "match": "League 1: C v A (Cowie v Haggart)" },
+      { "date": "2025-10-10", "time": "18:30", "match": "League 2: C v A (Gray v Roche)" },
+      { "date": "2025-10-10", "time": "18:45", "match": "League 3: C v A (Ward v Buchanan)" },
+      { "date": "2025-10-10", "time": "19:00", "match": "League 1: B v C (Turner v Cowie)" },
+      { "date": "2025-10-10", "time": "19:15", "match": "League 2: B v C (Ward v Gray)" },
+      { "date": "2025-10-10", "time": "19:30", "match": "League 3: B v C (Turner v Ward)" },
+      { "date": "2025-10-10", "time": "19:45", "match": "League 4: A v B (Buchanan v Turner)" },
+      { "date": "2025-10-10", "time": "20:00", "match": "League 5: A v B (Haggart v Buchanan)" },
+      { "date": "2025-10-10", "time": "20:15", "match": "League 4: B v C (Turner v Haggart)" },
+      { "date": "2025-10-10", "time": "20:30", "match": "League 5: B v C (Buchanan v Haggart)" },
+      { "date": "2025-10-10", "time": "20:45", "match": "League 4: C v A (Haggart v Buchanan)" },
+      { "date": "2025-10-10", "time": "21:00", "match": "League 5: C v A (Haggart v Haggart)" },
+      { "date": "2025-10-10", "time": "21:20", "match": "Play-off: 1 v 2" },
+      { "date": "2025-10-10", "time": "21:30", "match": "Semi 1: 4 v 5" },
+      { "date": "2025-10-10", "time": "21:40", "match": "Semi 2: winner 1/2 v 3" },
+      { "date": "2025-10-10", "time": "21:50", "match": "Final" }
+    ]
   },
   {
-    "date": "2026-10-26",
-    "time": "20:30",
-    "opponent": "Lanark CC",
-    "venue": "Lanarkshire Ice Rink",
-    "competition": "Friendly"
+    "slug": "paterson",
+    "name": "The Paterson Trophy",
+    "format": "Five rinks playing a round-robin league throughout the season.",
+    "rinks": [
+      { "label": "Rink 1", "skip": "I Buchanan", "third": "A P Turner", "second": "J Ward", "lead": "C Jopling" },
+      { "label": "Rink 2", "skip": "D Haggart", "third": "D Buchanan", "second": "E Haggart", "lead": "S Turner" },
+      { "label": "Rink 3", "skip": "J T Wilson", "third": "A Bell", "second": "A G Turner", "lead": "E Ward" },
+      { "label": "Rink 4", "skip": "S Lean", "third": "G Haggart", "second": "J Wilson", "lead": "J Cowie" },
+      { "label": "Rink 5", "skip": "J Buchanan", "third": "E Roche", "second": "S Carson", "lead": "M Gray" }
+    ],
+    "reserves": ["M Barr", "H Burke", "L Haggart", "F Hetherington", "S Martin", "T Roche", "J Wilson"],
+    "fixtures": [
+      { "date": "2025-10-17", "time": "20:15", "match": "3 v 4" },
+      { "date": "2025-10-31", "time": "20:15", "match": "1 v 5" },
+      { "date": "2025-11-07", "time": "20:15", "match": "3 v 5" },
+      { "date": "2025-11-21", "time": "20:15", "match": "1 v 2" },
+      { "date": "2026-01-16", "time": "20:15", "match": "1 v 3" },
+      { "date": "2026-01-30", "time": "20:15", "match": "1 v 4 / 2 v 5" },
+      { "date": "2026-02-20", "time": "20:15", "match": "2 v 3 / 4 v 5" },
+      { "date": "2026-02-27", "time": "20:15", "match": "2 v 4" }
+    ]
   },
   {
-    "date": "2026-11-09",
-    "time": "19:00",
-    "opponent": "Stirling CC",
-    "venue": "Lanarkshire Ice Rink",
-    "competition": "League"
+    "slug": "bob-wilson",
+    "name": "The Bob Wilson Knock-Out Cup",
+    "format": "Four rinks competing in a knock-out format.",
+    "rinks": [
+      { "label": "Rink 1", "skip": "D Buchanan", "third": "G Haggart", "second": "S Turner", "lead": "M Gray" },
+      { "label": "Rink 2", "skip": "I Buchanan", "third": "D Haggart", "second": "E Ward", "lead": "L Haggart" },
+      { "label": "Rink 3", "skip": "J T Wilson", "third": "J Ward", "second": "A G Turner", "lead": "J Wilson" },
+      { "label": "Rink 4", "skip": "S Lean", "third": "A P Turner", "second": "J Cowie", "lead": "E Haggart" }
+    ],
+    "reserves": ["M Barr", "J Buchanan", "H Burke", "S Carson", "Tom Roche"],
+    "fixtures": [
+      { "date": "2026-02-15", "time": "14:30", "match": "Semi-finals: 1 v 2 and 3 v 4" },
+      { "date": "2026-03-15", "time": "14:30", "match": "Final: winner 1/2 v winner 3/4" }
+    ]
+  },
+  {
+    "slug": "mccall-salver",
+    "name": "The McCall Salver",
+    "format": "Pairs competition. Four pairs playing a round-robin in December.",
+    "rinks": [
+      { "label": "Pair 1", "players": ["S Carson", "C Jopling"] },
+      { "label": "Pair 2", "players": ["S Turner", "A P Turner"] },
+      { "label": "Pair 3", "players": ["J Buchanan", "D Buchanan"] },
+      { "label": "Pair 4", "players": ["I Buchanan", "J Cowie"] }
+    ],
+    "reserves": ["M Barr", "A Bell", "H Burke", "D Haggart", "E Haggart", "G Haggart", "L Haggart", "E Roche", "T Roche", "J Ward"],
+    "fixtures": [
+      { "date": "2025-12-05", "time": "20:15", "match": "1 v 2" },
+      { "date": "2025-12-05", "time": "21:15", "match": "3 v 4" },
+      { "date": "2025-12-12", "time": "20:15", "match": "1 v 3" },
+      { "date": "2025-12-12", "time": "21:15", "match": "2 v 4" },
+      { "date": "2025-12-19", "time": "20:15", "match": "1 v 4" },
+      { "date": "2025-12-19", "time": "21:15", "match": "2 v 3" }
+    ]
+  },
+  {
+    "slug": "cleland",
+    "name": "The Cleland Trophy",
+    "format": "Three rinks in a round-robin league.",
+    "rinks": [
+      { "label": "Rink 1", "skip": "A Bell", "third": "J Wilson", "second": "A G Turner", "lead": "S Lean" },
+      { "label": "Rink 2", "skip": "A P Turner", "third": "E Roche", "second": "C Jopling", "lead": "J T Wilson" },
+      { "label": "Rink 3", "skip": "G Haggart", "third": "E Haggart", "second": "S Turner", "lead": "I Buchanan" }
+    ],
+    "reserves": ["M Barr", "H Burke", "S Carson", "J Cowie", "D Haggart", "L Haggart", "F Hetherington", "S Martin", "T Roche", "E Ward", "J Ward", "J Wilson"],
+    "fixtures": [
+      { "date": "2025-10-24", "time": "20:15", "match": "1 v 2" },
+      { "date": "2025-11-14", "time": "20:15", "match": "2 v 3" },
+      { "date": "2025-11-28", "time": "20:15", "match": "1 v 3" },
+      { "date": "2026-01-09", "time": "20:15", "match": "1 v 2" },
+      { "date": "2026-01-23", "time": "20:15", "match": "2 v 3" },
+      { "date": "2026-02-13", "time": "20:15", "match": "1 v 3" }
+    ]
   }
 ]

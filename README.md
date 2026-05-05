@@ -19,33 +19,98 @@ Requires Node.js 18+.
 
 ## How committee members update the site
 
-All edits can be made directly on github.com — no software to install.
+All edits can be made directly on github.com — no software to install. After you save (commit) a change, the website rebuilds itself automatically and goes live in about a minute.
 
-### Update fixtures
+> **Tip — try it safely first:** instead of clicking "Commit directly to the main branch", choose "Create a new branch and start a pull request". That gives you a temporary preview link to check before publishing. Anyone with edit rights can then click **Merge pull request** to make it live.
 
-1. Open `src/data/fixtures.json` on GitHub.
-2. Click the pencil (Edit) icon.
-3. Add or edit an entry, copying the existing pattern:
+---
+
+### 📅 Start-of-season checklist (do this each October)
+
+When the new season begins and the fixture card is printed, follow these steps in order. You should not need to touch anything except the two files below.
+
+1. **Update the fixtures page** — see [Updating fixtures](#updating-fixtures-the-fixtures-page) below. This is where you put the rinks, reserves and match dates straight from the printed fixture card.
+2. **Reset the competition standings** — see [Updating scores & competition tables](#updating-scores--competition-tables). At the start of the season you blank out last year's scores so each league starts fresh.
+3. **Update the season label** — open `src/data/club.json`, change the `season` value (e.g. `"2026-27"`) and commit.
+4. **Optional: archive last season's results** — if you want to keep a record, copy the old `competitions.json` into a file called something like `competitions-2024-25.json` in the same folder before you overwrite it. (It won't appear on the site, but it's there for reference.)
+
+That's it. Through the season you only need to come back to add scores as games are played.
+
+---
+
+### Updating fixtures (the Fixtures page)
+
+The Fixtures page shows all five club competitions as tabs. Everything on it comes from one file: **`src/data/fixtures.json`**.
+
+1. On GitHub, open `src/data/fixtures.json`.
+2. Click the pencil (✏️ Edit) icon.
+3. For each competition, update three things from the printed fixture card:
+   - **`rinks`** — the list of teams (Skip / Third / Second / Lead) or pairs.
+   - **`reserves`** — the names listed as reserves.
+   - **`fixtures`** — the dates, times and matches (e.g. `"1 v 2"`).
+4. Scroll to the bottom → **Commit changes**.
+
+Example of one competition entry — copy the shape exactly, just change the values:
+
+```json
+{
+  "slug": "paterson",
+  "name": "The Paterson Trophy",
+  "format": "Five rinks playing a round-robin league throughout the season.",
+  "rinks": [
+    { "label": "Rink 1", "skip": "I Buchanan", "third": "A P Turner", "second": "J Ward",   "lead": "C Jopling" },
+    { "label": "Rink 2", "skip": "D Haggart",  "third": "D Buchanan", "second": "E Haggart", "lead": "S Turner" }
+  ],
+  "reserves": ["M Barr", "H Burke", "L Haggart"],
+  "fixtures": [
+    { "date": "2025-10-17", "time": "20:15", "match": "3 v 4" },
+    { "date": "2025-10-31", "time": "20:15", "match": "1 v 5" }
+  ]
+}
+```
+
+Rules of thumb:
+
+- **Dates** must be written `YYYY-MM-DD` (year-month-day). The page formats them nicely for you.
+- **Times** are 24-hour, e.g. `"20:15"` for 8:15pm.
+- For **pairs / singles** competitions, swap the four-player rink for a `players` list:
+  ```json
+  { "label": "Pair 1", "players": ["S Carson", "C Jopling"] }
+  ```
+- Don't change `slug` — it's used in the tab links.
+- Past dates are automatically greyed out, so you don't have to remove them as the season progresses.
+
+---
+
+### Updating scores & competition tables (the Scores page)
+
+The Scores page has one tab per competition plus a **Recent Results** tab for external matches. There are two files to know about:
+
+| File | What it controls |
+| --- | --- |
+| `src/data/competitions.json` | The five internal-club competition tables (Paterson, Cleland, McCall Salver, Bob Wilson, Singles). |
+| `src/data/scores.json` | The "Recent Results" list of matches against other clubs. |
+
+#### Recent results (matches vs other clubs)
+
+1. Open `src/data/scores.json` on GitHub → ✏️ Edit.
+2. Add a new entry at the top, copying the existing pattern:
    ```json
    {
      "date": "2026-11-09",
-     "time": "19:00",
      "opponent": "Stirling CC",
-     "venue": "Lanarkshire Ice Rink",
-     "competition": "League"
+     "competition": "League",
+     "us": 7,
+     "them": 5
    }
    ```
-4. Scroll down → **Commit changes**. The site updates within ~1 minute.
+3. **Commit changes**. The Recent Results tab updates automatically — green for a win, red for a loss.
 
-### Update scores (recent match results)
+#### Internal competition tables
 
-Same as fixtures, but edit `src/data/scores.json`. Use whole numbers for `us` and `them`. These appear under the **Recent Results** tab on the Scores page.
+The five club competitions live in **`src/data/competitions.json`**. Each entry becomes a tab on the Scores page. There are two table types — pick the one that matches the printed sheet.
 
-### Update internal competitions
-
-The five club competitions live in **`src/data/competitions.json`**. Each entry becomes a tab on the Scores page. There are two table types — pick the one that matches the printed sheet you already produce.
-
-#### A. Round-robin grid (Paterson, Cleland, McCall Salver, etc.)
+##### A. Round-robin grid (Paterson, Cleland, McCall Salver)
 
 ```json
 {
@@ -67,9 +132,9 @@ The five club competitions live in **`src/data/competitions.json`**. Each entry 
     }
   ],
   "stats": [
-    { "label": "Points", "values": [2, 6, 2, 2, 8] },
+    { "label": "Points",           "values": [2, 6, 2, 2, 8] },
     { "label": "Shots difference", "values": [-6, 9, -11, -14, 22] },
-    { "label": "Position", "values": [3, 2, 4, 5, 1] }
+    { "label": "Position",         "values": [3, 2, 4, 5, 1] }
   ]
 }
 ```
@@ -88,7 +153,7 @@ Rules of thumb:
 - `stats` is the footer — add as many rows as you need (`Points`, `Shots difference`, `Shots up`, `Ends won`, `Position`, …). The page automatically highlights `Position` = 1 with a 🏆.
 - If the printed sheet has two rows per player (Cleland-style), just add two `rows` entries with the same `player` name.
 
-#### B. Knockout cup (Bob Wilson, etc.)
+##### B. Knockout cup (Bob Wilson)
 
 ```json
 {
@@ -103,7 +168,8 @@ Rules of thumb:
       "team1": "David Buchanan",
       "score1": "6",
       "team2": "Iain Buchanan",
-      "score2": "8"
+      "score2": "8",
+      "winner": 2
     },
     {
       "date": "15th Mar 2025",
@@ -111,19 +177,26 @@ Rules of thumb:
       "team1": "Iain Buchanan",
       "score1": "4 (4 ends)",
       "team2": "John Wilson",
-      "score2": "4 (3 ends)"
+      "score2": "4 (3 ends)",
+      "winner": 1
     }
   ]
 }
 ```
 
-`score1` / `score2` are strings, so you can write things like `"4 (4 ends)"` for tiebreaks. `round` is optional — leave it as `""` if you don't want to label it.
+- `score1` / `score2` are written as text, so you can put things like `"4 (4 ends)"` for tiebreaks.
+- `round` is optional — leave it as `""` if you don't want to label it.
+- `winner` is optional, and only used on the **Final**. Set it to `1` if `team1` won, or `2` if `team2` won. The winning team gets a 🏆 next to their name.
 
-#### Starting a new season
+##### Resetting at the start of a new season
 
 1. Update `season` (e.g. `"2026-27"`).
-2. Replace the player names and clear the scores — easiest is to leave the structure in place and blank out the `scores` arrays and `stats` values. Empty competitions automatically show a "Results will appear here…" message.
-3. Add results week by week as games are played.
+2. Replace the player names with this season's line-ups.
+3. Blank out the scores — easiest is to leave the structure in place and:
+   - clear every `scores` array entry to `""`,
+   - set every `stats` value to `0` (or delete the `stats` block entirely),
+   - empty the knockout `matches` list to `[]`.
+4. Empty competitions automatically show a friendly _"Results will appear here once the competition is under way"_ message until you start adding scores.
 
 Each tab is also linkable directly: `…/scores#paterson`, `…/scores#bob-wilson`, etc. — handy for sharing in WhatsApp / emails.
 

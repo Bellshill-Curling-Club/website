@@ -168,24 +168,35 @@ const tabs = [
                   </tr>
                 </thead>
                 <tbody>
-                  {c.matches.map((m: any) => (
-                    <tr class="border-b border-slate-100 last:border-0">
-                      <td class="px-4 py-2 text-slate-600 whitespace-nowrap">
-                        {m.date}
-                      </td>
-                      <td class="px-4 py-2 text-slate-600">{m.round || ""}</td>
-                      <td class="px-4 py-2 text-right font-medium">
-                        {m.team1}
-                      </td>
-                      <td class="px-4 py-2 text-center font-semibold tabular-nums">
-                        {m.score1}
-                      </td>
-                      <td class="px-4 py-2 font-medium">{m.team2}</td>
-                      <td class="px-4 py-2 text-center font-semibold tabular-nums">
-                        {m.score2}
-                      </td>
-                    </tr>
-                  ))}
+                  {c.matches.map((m: any) => {
+                    const isFinal = /final/i.test(m.round || "");
+                    const trophy1 = isFinal && m.winner === 1 ? "🏆 " : "";
+                    const trophy2 = isFinal && m.winner === 2 ? "🏆 " : "";
+                    const winnerClass1 =
+                      isFinal && m.winner === 1 ? "font-bold text-yellow-600" : "font-medium";
+                    const winnerClass2 =
+                      isFinal && m.winner === 2 ? "font-bold text-yellow-600" : "font-medium";
+                    return (
+                      <tr class="border-b border-slate-100 last:border-0">
+                        <td class="px-4 py-2 text-slate-600 whitespace-nowrap">
+                          {m.date}
+                        </td>
+                        <td class="px-4 py-2 text-slate-600">{m.round || ""}</td>
+                        <td class:list={["px-4 py-2 text-right", winnerClass1]}>
+                          {trophy1}{m.team1}
+                        </td>
+                        <td class="px-4 py-2 text-center font-semibold tabular-nums">
+                          {m.score1}
+                        </td>
+                        <td class:list={["px-4 py-2", winnerClass2]}>
+                          {trophy2}{m.team2}
+                        </td>
+                        <td class="px-4 py-2 text-center font-semibold tabular-nums">
+                          {m.score2}
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
