@@ -1,23 +1,35 @@
 [
   {
-    "date": "2026-04-02",
-    "opponent": "Hamilton CC",
-    "us": 7,
-    "them": 5,
-    "competition": "League"
-  },
-  {
-    "date": "2026-03-19",
-    "opponent": "Lanark CC",
-    "us": 4,
-    "them": 8,
-    "competition": "Friendly"
+    "date": "2026-03-26",
+    "competition": "Bob Wilson Knock-Out Cup Final",
+    "team1": "Iain Buchanan",
+    "score1": 4,
+    "team2": "John Wilson",
+    "score2": 4
   },
   {
     "date": "2026-03-05",
-    "opponent": "Stirling CC",
-    "us": 6,
-    "them": 6,
-    "competition": "League"
+    "competition": "LIR Small Clubs Semi Final",
+    "team1": "Bellshill",
+    "score1": 10,
+    "team2": "Cadder",
+    "score2": 9,
+    "winner": 1
+  },
+ {
+    "date": "2026-02-13",
+    "competition": "The Cleland Trophy",
+    "team1": "G Haggart",
+    "score1": 7,
+    "team2": "A Bell",
+    "score2": 4
+  },
+   {
+    "date": "2026-02-27",
+    "competition": "LIR Small Clubs",
+    "team1": "Bellshill",
+    "score1": 13,
+    "team2": "East Kilbride",
+    "score2": 5
   }
 ]
