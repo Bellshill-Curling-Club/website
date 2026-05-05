@@ -28,11 +28,11 @@ const tabs = [
 ---
 
 <BaseLayout
-  title="Scores & Competitions"
+  title="Scores"
   description="Latest results and internal club competition standings for Bellshill Curling Club."
 >
   <section class="max-w-6xl mx-auto px-4 py-12">
-    <h1 class="text-3xl font-bold text-stone mb-2">Scores & Competitions</h1>
+    <h1 class="text-3xl font-bold text-stone mb-2">Scores</h1>
     <p class="text-slate-600 mb-6">
       Standings for our five internal club competitions, plus our latest
       external match results.
@@ -169,7 +169,7 @@ const tabs = [
                 </thead>
                 <tbody>
                   {c.matches.map((m: any) => {
-                    const isFinal = /final/i.test(m.round || "");
+                    const isFinal = /^\s*final\s*$/i.test(m.round || "");
                     const trophy1 = isFinal && m.winner === 1 ? "🏆 " : "";
                     const trophy2 = isFinal && m.winner === 2 ? "🏆 " : "";
                     const winnerClass1 =
