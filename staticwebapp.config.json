@@ -3,6 +3,11 @@
     "rewrite": "/index.html",
     "exclude": ["/images/*", "/*.{css,js,svg,ico,png,jpg,jpeg,webp,woff2}"]
   },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/404.html"
+    }
+  },
   "mimeTypes": {
     ".json": "application/json"
   },
