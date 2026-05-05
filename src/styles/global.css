@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide scrollbar on horizontal-scroll tab lists */
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+/* Tighter table cells on mobile */
+@media (max-width: 639px) {
+  table th, table td { padding-left: 0.5rem; padding-right: 0.5rem; font-size: 0.8125rem; }
+}
+
 /* Lightweight prose styles for Markdown / long-form pages */
 .prose h1 { @apply text-3xl font-bold text-stone mt-2 mb-4; }
 .prose h2 { @apply text-2xl font-semibold text-stone mt-8 mb-3; }

@@ -29,7 +29,7 @@ const tabs = competitions.map((c) => ({ slug: c.slug, label: c.name }));
     </p>
 
     <div
-      class="flex flex-wrap gap-2 border-b border-slate-200 mb-6"
+      class="flex gap-2 border-b border-slate-200 mb-6 overflow-x-auto -mx-4 px-4 scrollbar-hide"
       role="tablist"
     >
       {tabs.map((t, i) => (
@@ -42,7 +42,7 @@ const tabs = competitions.map((c) => ({ slug: c.slug, label: c.name }));
           aria-controls={`panel-${t.slug}`}
           tabindex={i === 0 ? 0 : -1}
           class:list={[
-            'px-4 py-2 text-sm font-medium rounded-t-md transition-colors',
+            'px-3 py-2 text-sm font-medium rounded-t-md transition-colors whitespace-nowrap',
             'border border-b-0 -mb-px',
             'aria-selected:bg-white aria-selected:border-slate-200 aria-selected:text-stone',
             'border-transparent text-slate-500 hover:text-stone',
