@@ -29,7 +29,7 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_ME';
       novalidate
     >
       <div>
-        <label for="name" class="block font-medium">Name</label>
+        <label for="name" class="block font-medium">Name <span aria-hidden="true" class="text-red-600">*</span></label>
         <input
           id="name"
           name="name"
@@ -37,31 +37,34 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_ME';
           required
           minlength="2"
           autocomplete="name"
-          class="mt-1 w-full border border-slate-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-stone"
+          aria-required="true"
+          class="mt-1 w-full border border-slate-300 rounded-lg p-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-stone"
         />
       </div>
 
       <div>
-        <label for="email" class="block font-medium">Email</label>
+        <label for="email" class="block font-medium">Email <span aria-hidden="true" class="text-red-600">*</span></label>
         <input
           id="email"
           name="email"
           type="email"
           required
           autocomplete="email"
-          class="mt-1 w-full border border-slate-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-stone"
+          aria-required="true"
+          class="mt-1 w-full border border-slate-300 rounded-lg p-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-stone"
         />
       </div>
 
       <div>
-        <label for="message" class="block font-medium">Message</label>
+        <label for="message" class="block font-medium">Message <span aria-hidden="true" class="text-red-600">*</span></label>
         <textarea
           id="message"
           name="message"
           rows="5"
           required
           minlength="10"
-          class="mt-1 w-full border border-slate-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-stone"
+          aria-required="true"
+          class="mt-1 w-full border border-slate-300 rounded-lg p-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-stone"
         ></textarea>
       </div>
 

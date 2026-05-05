@@ -36,8 +36,11 @@ const tabs = competitions.map((c) => ({ slug: c.slug, label: c.name }));
         <button
           type="button"
           role="tab"
+          id={`tab-${t.slug}`}
           data-tab={t.slug}
           aria-selected={i === 0 ? 'true' : 'false'}
+          aria-controls={`panel-${t.slug}`}
+          tabindex={i === 0 ? 0 : -1}
           class:list={[
             'px-4 py-2 text-sm font-medium rounded-t-md transition-colors',
             'border border-b-0 -mb-px',
@@ -51,7 +54,7 @@ const tabs = competitions.map((c) => ({ slug: c.slug, label: c.name }));
     </div>
 
     {competitions.map((c, i) => (
-      <div role="tabpanel" data-panel={c.slug} class:list={['tab-panel', i === 0 ? '' : 'hidden']}>
+      <div role="tabpanel" id={`panel-${c.slug}`} aria-labelledby={`tab-${c.slug}`} data-panel={c.slug} class:list={['tab-panel', i === 0 ? '' : 'hidden']}>
         <header class="mb-4">
           <h2 class="text-2xl font-bold text-stone">{c.name}</h2>
           {c.format && <p class="text-sm text-slate-600 mt-1">{c.format}</p>}
@@ -147,10 +150,13 @@ const tabs = competitions.map((c) => ({ slug: c.slug, label: c.name }));
   const tabs = document.querySelectorAll<HTMLButtonElement>('[data-tab]');
   const panels = document.querySelectorAll<HTMLElement>('[data-panel]');
 
-  function activate(slug: string) {
-    tabs.forEach((t) =>
-      t.setAttribute('aria-selected', t.dataset.tab === slug ? 'true' : 'false'),
-    );
+  function activate(slug: string, focus = false) {
+    tabs.forEach((t) => {
+      const selected = t.dataset.tab === slug;
+      t.setAttribute('aria-selected', selected ? 'true' : 'false');
+      t.setAttribute('tabindex', selected ? '0' : '-1');
+      if (focus && selected) t.focus();
+    });
     panels.forEach((p) =>
       p.classList.toggle('hidden', p.dataset.panel !== slug),
     );
@@ -162,6 +168,20 @@ const tabs = competitions.map((c) => ({ slug: c.slug, label: c.name }));
   tabs.forEach((t) =>
     t.addEventListener('click', () => activate(t.dataset.tab!)),
   );
+
+  const tabList = document.querySelector<HTMLElement>('[role=tablist]');
+  tabList?.addEventListener('keydown', (e) => {
+    const tabArr = Array.from(tabs);
+    const idx = tabArr.findIndex((t) => t.dataset.tab === document.querySelector<HTMLButtonElement>('[aria-selected=true]')?.dataset.tab);
+    let next = idx;
+    if (e.key === 'ArrowRight') next = (idx + 1) % tabArr.length;
+    else if (e.key === 'ArrowLeft') next = (idx - 1 + tabArr.length) % tabArr.length;
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = tabArr.length - 1;
+    else return;
+    e.preventDefault();
+    activate(tabArr[next].dataset.tab!, true);
+  });
 
   const initial = location.hash.replace('#', '');
   if (initial && document.querySelector(`[data-panel="${initial}"]`)) {
