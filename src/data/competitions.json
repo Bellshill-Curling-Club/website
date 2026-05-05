@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "paterson",
+    "name": "Paterson Competition",
+    "season": "2025-26",
+    "type": "round-robin",
+    "players": [
+      "Iain Buchanan",
+      "David Haggart",
+      "John Wilson",
+      "Sarah Lean",
+      "Jonathan Buchanan"
+    ],
+    "rows": [
+      { "player": "Iain Buchanan",     "scores": ["",      "8 - 3",  "6 - 5",  "5 - 9",  "7 - 3"]  },
+      { "player": "David Haggart",     "scores": ["3 - 8", "",       "3 - 9",  "8 - 10", "7 - 3"]  },
+      { "player": "John Wilson",       "scores": ["5 - 6", "9 - 3",  "",       "6 - 2",  "7 - 5"]  },
+      { "player": "Sarah Lean",        "scores": ["9 - 5", "10 - 8", "2 - 6",  "",       "12 - 0"] },
+      { "player": "Jonathan Buchanan", "scores": ["3 - 7", "3 - 7",  "5 - 7",  "0 - 12", ""]       }
+    ],
+    "stats": [
+      { "label": "Points",           "values": [2, 6, 2, 2, 8] },
+      { "label": "Shots difference", "values": [-6, 9, -11, -14, 22] },
+      { "label": "Position",         "values": [3, 2, 4, 5, 1] }
+    ]
+  },
+  {
+    "slug": "cleland",
+    "name": "Cleland Competition",
+    "season": "2025-26",
+    "type": "round-robin",
+    "players": ["Alison Bell", "Alan Turner", "Gillian Haggart"],
+    "rows": [
+      { "player": "Alison Bell",    "scores": ["",       "11 - 5", "8 - 0"] },
+      { "player": "Alison Bell",    "scores": ["",       "5 - 6",  "7 - 4"] },
+      { "player": "Alan Turner",    "scores": ["5 - 11", "",       "6 - 5"] },
+      { "player": "Alan Turner",    "scores": ["6 - 5",  "",       "4 - 7"] },
+      { "player": "Gillian Haggart","scores": ["0 - 8",  "5 - 6",  ""]      },
+      { "player": "Gillian Haggart","scores": ["4 - 7",  "7 - 4",  ""]      }
+    ],
+    "stats": [
+      { "label": "Points",           "values": [2, 4, 6] },
+      { "label": "Shots difference", "values": [-16, 7, 9] },
+      { "label": "Position",         "values": [3, 2, 1] }
+    ]
+  },
+  {
+    "slug": "mccall-salver",
+    "name": "McCall Salver",
+    "subtitle": "Pairs Competition",
+    "season": "2025-26",
+    "type": "round-robin",
+    "players": [
+      ["Stewart Carson", "Callum Jopling"],
+      ["Stewart Turner", "Alan Turner"],
+      ["Jonathan Buchanan", "David Buchanan"],
+      ["Iain Buchanan", "Joyce Cowie"]
+    ],
+    "rows": [
+      { "player": "Carson & Jopling",     "scores": ["",      "3 - 5", "5 - 2", "6 - 4"] },
+      { "player": "Turner & Turner",      "scores": ["5 - 3", "",      "9 - 1", "6 - 0"] },
+      { "player": "Buchanan & Buchanan",  "scores": ["2 - 5", "1 - 9", "",      "8 - 0"] },
+      { "player": "Buchanan & Cowie",     "scores": ["4 - 6", "0 - 6", "0 - 8", ""]      }
+    ],
+    "stats": [
+      { "label": "Points",    "values": [2, 0, 4, 6] },
+      { "label": "Shots up",  "values": [-3, -16, 3, 16] },
+      { "label": "Ends won",  "values": [8, 3, 7, 11] },
+      { "label": "Position",  "values": [3, 4, 2, 1] }
+    ]
+  },
+  {
+    "slug": "bob-wilson",
+    "name": "Bob Wilson Knock-Out Cup",
+    "season": "2025-26",
+    "type": "knockout",
+    "matches": [
+      { "date": "15th Feb 2025", "round": "Semi-final", "team1": "David Buchanan", "score1": "6",          "team2": "Iain Buchanan", "score2": "8"          },
+      { "date": "15th Feb 2025", "round": "Semi-final", "team1": "John Wilson",    "score1": "6",          "team2": "Sarah Lean",    "score2": "4"          },
+      { "date": "15th Mar 2025", "round": "Final",      "team1": "Iain Buchanan",  "score1": "4 (4 ends)", "team2": "John Wilson",   "score2": "4 (3 ends)" }
+    ]
+  },
+  {
+    "slug": "singles",
+    "name": "Singles",
+    "season": "2025-26",
+    "type": "round-robin",
+    "players": [],
+    "rows": [],
+    "stats": []
+  }
+]

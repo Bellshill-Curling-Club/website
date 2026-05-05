@@ -1,51 +1,268 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import scores from '../data/scores.json';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import scores from "../data/scores.json";
+import competitions from "../data/competitions.json";
 
-const fmt = (d) =>
-  new Date(d).toLocaleDateString('en-GB', {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric',
+const fmt = (d: string) =>
+  new Date(d).toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
   });
 
 const recent = [...scores].sort((a, b) => b.date.localeCompare(a.date));
 
-const resultLabel = (s) =>
-  s.us > s.them ? 'Win' : s.us < s.them ? 'Loss' : 'Draw';
-const resultColour = (s) =>
-  s.us > s.them ? 'text-green-700' : s.us < s.them ? 'text-red-700' : 'text-slate-600';
----
-<BaseLayout
-  title="Scores"
-  description="Recent match results for Bellshill Curling Club."
->
-  <section class="max-w-4xl mx-auto px-4 py-12">
-    <h1 class="text-3xl font-bold text-stone mb-6">Recent Results</h1>
+const resultLabel = (s: { us: number; them: number }) =>
+  s.us > s.them ? "Win" : s.us < s.them ? "Loss" : "Draw";
+const resultColour = (s: { us: number; them: number }) =>
+  s.us > s.them
+    ? "text-green-700"
+    : s.us < s.them
+      ? "text-red-700"
+      : "text-slate-600";
 
-    {recent.length === 0 ? (
-      <p>No results recorded yet this season.</p>
-    ) : (
-      <ul class="space-y-3">
-        {recent.map((s) => (
-          <li class="flex items-center justify-between border border-slate-200 rounded-lg p-4 bg-white">
-            <div>
-              <p class="font-semibold">vs {s.opponent}</p>
-              <p class="text-sm text-slate-500">
-                {fmt(s.date)} · {s.competition}
+const tabs = [
+  ...competitions.map((c: any) => ({ slug: c.slug, label: c.name })),
+  { slug: "recent", label: "Recent Results" },
+];
+---
+
+<BaseLayout
+  title="Scores & Competitions"
+  description="Latest results and internal club competition standings for Bellshill Curling Club."
+>
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-bold text-stone mb-2">Scores & Competitions</h1>
+    <p class="text-slate-600 mb-6">
+      Standings for our five internal club competitions, plus our latest
+      external match results.
+    </p>
+
+    <div
+      class="flex flex-wrap gap-2 border-b border-slate-200 mb-6"
+      role="tablist"
+    >
+      {
+        tabs.map((t, i) => (
+          <button
+            type="button"
+            role="tab"
+            data-tab={t.slug}
+            aria-selected={i === 0 ? "true" : "false"}
+            class:list={[
+              "px-4 py-2 text-sm font-medium rounded-t-md transition-colors",
+              "border border-b-0 -mb-px",
+              "aria-selected:bg-white aria-selected:border-slate-200 aria-selected:text-stone",
+              "border-transparent text-slate-500 hover:text-stone",
+            ]}
+          >
+            {t.label}
+          </button>
+        ))
+      }
+    </div>
+
+    {
+      competitions.map((c: any, i: number) => (
+        <div
+          role="tabpanel"
+          data-panel={c.slug}
+          class:list={["tab-panel", i === 0 ? "" : "hidden"]}
+        >
+          <header class="mb-4">
+            <h2 class="text-2xl font-bold text-stone">{c.name}</h2>
+            {c.subtitle && (
+              <p class="text-sm uppercase tracking-wide text-slate-500">
+                {c.subtitle}
               </p>
+            )}
+            <p class="text-sm text-slate-500">Season {c.season}</p>
+          </header>
+
+          {c.type === "round-robin" && c.players.length > 0 && (
+            <div class="overflow-x-auto bg-white border border-slate-200 rounded-lg">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="border-b border-slate-200">
+                    <th class="text-left px-4 py-3" />
+                    {c.players.map((p: any) => (
+                      <th class="px-4 py-3 text-center font-semibold text-stone whitespace-nowrap">
+                        {Array.isArray(p) ? (
+                          <span class="block leading-tight">
+                            {p.map((line: string) => (
+                              <span class="block">{line}</span>
+                            ))}
+                          </span>
+                        ) : (
+                          p
+                        )}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {c.rows.map((row: any) => (
+                    <tr class="border-b border-slate-100 last:border-0">
+                      <td class="px-4 py-2 font-medium text-stone whitespace-nowrap">
+                        {row.player}
+                      </td>
+                      {row.scores.map((s: string) => (
+                        <td class="px-4 py-2 text-center font-semibold tabular-nums">
+                          {s ? s : <span class="text-slate-300">———</span>}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+                {c.stats && c.stats.length > 0 && (
+                  <tfoot class="bg-slate-50 border-t-2 border-slate-200">
+                    {c.stats.map((stat: any) => {
+                      const isPosition = /position/i.test(stat.label);
+                      return (
+                        <tr>
+                          <td class="px-4 py-2 text-slate-600">{stat.label}</td>
+                          {stat.values.map((v: number) => (
+                            <td
+                              class:list={[
+                                "px-4 py-2 text-center tabular-nums",
+                                isPosition && v === 1
+                                  ? "font-bold text-yellow-600"
+                                  : "",
+                              ]}
+                            >
+                              {isPosition && v === 1 ? `🏆 ${v}` : v}
+                            </td>
+                          ))}
+                        </tr>
+                      );
+                    })}
+                  </tfoot>
+                )}
+              </table>
             </div>
-            <div class="text-right">
-              <div class:list={['text-xl font-bold', resultColour(s)]}>
-                {s.us} – {s.them}
-              </div>
-              <div class:list={['text-xs uppercase tracking-wide', resultColour(s)]}>
-                {resultLabel(s)}
-              </div>
+          )}
+
+          {c.type === "knockout" && c.matches.length > 0 && (
+            <div class="overflow-x-auto bg-white border border-slate-200 rounded-lg">
+              <table class="w-full text-sm">
+                <thead class="border-b border-slate-200">
+                  <tr>
+                    <th class="text-left px-4 py-3 font-semibold text-stone">
+                      Date
+                    </th>
+                    <th class="text-left px-4 py-3 font-semibold text-stone">
+                      Round
+                    </th>
+                    <th class="text-right px-4 py-3 font-semibold text-stone">
+                      Team
+                    </th>
+                    <th class="text-center px-4 py-3 font-semibold text-stone">
+                      Score
+                    </th>
+                    <th class="text-left px-4 py-3 font-semibold text-stone">
+                      Team
+                    </th>
+                    <th class="text-center px-4 py-3 font-semibold text-stone">
+                      Score
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {c.matches.map((m: any) => (
+                    <tr class="border-b border-slate-100 last:border-0">
+                      <td class="px-4 py-2 text-slate-600 whitespace-nowrap">
+                        {m.date}
+                      </td>
+                      <td class="px-4 py-2 text-slate-600">{m.round || ""}</td>
+                      <td class="px-4 py-2 text-right font-medium">
+                        {m.team1}
+                      </td>
+                      <td class="px-4 py-2 text-center font-semibold tabular-nums">
+                        {m.score1}
+                      </td>
+                      <td class="px-4 py-2 font-medium">{m.team2}</td>
+                      <td class="px-4 py-2 text-center font-semibold tabular-nums">
+                        {m.score2}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-          </li>
-        ))}
-      </ul>
-    )}
+          )}
+
+          {((c.type === "round-robin" && c.players.length === 0) ||
+            (c.type === "knockout" && c.matches.length === 0)) && (
+            <p class="text-slate-500 italic">
+              Results will appear here once the competition is under way.
+            </p>
+          )}
+        </div>
+      ))
+    }
+
+    <div role="tabpanel" data-panel="recent" class="tab-panel hidden">
+      <h2 class="text-2xl font-bold text-stone mb-4">Recent Match Results</h2>
+      {
+        recent.length === 0 ? (
+          <p>No results recorded yet this season.</p>
+        ) : (
+          <ul class="space-y-3">
+            {recent.map((s) => (
+              <li class="flex items-center justify-between border border-slate-200 rounded-lg p-4 bg-white">
+                <div>
+                  <p class="font-semibold">vs {s.opponent}</p>
+                  <p class="text-sm text-slate-500">
+                    {fmt(s.date)} · {s.competition}
+                  </p>
+                </div>
+                <div class="text-right">
+                  <div class:list={["text-xl font-bold", resultColour(s)]}>
+                    {s.us} – {s.them}
+                  </div>
+                  <div
+                    class:list={[
+                      "text-xs uppercase tracking-wide",
+                      resultColour(s),
+                    ]}
+                  >
+                    {resultLabel(s)}
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
   </section>
 </BaseLayout>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>("[data-tab]");
+  const panels = document.querySelectorAll<HTMLElement>("[data-panel]");
+
+  function activate(slug: string) {
+    tabs.forEach((t) =>
+      t.setAttribute(
+        "aria-selected",
+        t.dataset.tab === slug ? "true" : "false",
+      ),
+    );
+    panels.forEach((p) =>
+      p.classList.toggle("hidden", p.dataset.panel !== slug),
+    );
+    if (history.replaceState) {
+      history.replaceState(null, "", `#${slug}`);
+    }
+  }
+
+  tabs.forEach((t) =>
+    t.addEventListener("click", () => activate(t.dataset.tab!)),
+  );
+
+  const initial = location.hash.replace("#", "");
+  if (initial && document.querySelector(`[data-panel="${initial}"]`)) {
+    activate(initial);
+  }
+</script>
