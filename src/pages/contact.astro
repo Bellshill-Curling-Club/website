@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import club from '../data/club.json';
 
 // --- Formspree configuration ---
 // 1. Sign up at https://formspree.io/
@@ -16,9 +15,8 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_ME';
   <section class="max-w-xl mx-auto px-4 py-12">
     <h1 class="text-3xl font-bold text-stone mb-2">Contact Us</h1>
     <p class="mb-6">
-      Interested in joining or have a question? Send us a message and a
-      committee member will get back to you. You can also email us directly at
-      <a class="underline" href={`mailto:${club.email}`}>{club.email}</a>.
+      Interested in joining or have a question? Send us a message using the
+      form below and a committee member will get back to you.
     </p>
 
     <form
