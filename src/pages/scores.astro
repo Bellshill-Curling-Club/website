@@ -209,8 +209,112 @@ const tabs = [
             </div>
           )}
 
+          {c.type === "singles" && c.groups && c.groups.length > 0 && (
+            <div class="space-y-8">
+              {c.intro && (
+                <p class="text-slate-700 leading-relaxed max-w-3xl">{c.intro}</p>
+              )}
+
+              <div class="grid gap-6 md:grid-cols-2">
+                {c.groups.map((g: any) => (
+                  <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
+                    <h3 class="px-4 py-2 bg-slate-50 border-b border-slate-200 text-sm font-semibold text-stone">
+                      {g.name}
+                    </h3>
+                    <div class="overflow-x-auto">
+                      <table class="w-full text-sm">
+                        <thead>
+                          <tr class="border-b border-slate-200">
+                            <th scope="col" class="text-left px-4 py-2 font-semibold text-stone">Player</th>
+                            {c.columns.map((col: string) => (
+                              <th scope="col" class="px-4 py-2 text-center font-semibold text-stone whitespace-nowrap">
+                                {col}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {g.rows.map((row: any) => (
+                            <tr class="border-b border-slate-100 last:border-0">
+                              <th scope="row" class="px-4 py-2 font-medium text-stone whitespace-nowrap text-left">
+                                {row.player}
+                              </th>
+                              {row.values.map((v: any, vi: number) => {
+                                const isPos = vi === row.values.length - 1;
+                                const isWinner = isPos && v === 1;
+                                return (
+                                  <td
+                                    class:list={[
+                                      "px-4 py-2 text-center tabular-nums whitespace-nowrap",
+                                      isWinner ? "font-bold text-yellow-600" : "",
+                                    ]}
+                                  >
+                                    {isWinner ? `🏆 ${v}` : v}
+                                  </td>
+                                );
+                              })}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {c.bracket && (
+                <div>
+                  <h3 class="text-xl font-bold text-stone mb-3">Play-offs</h3>
+                  <div class="bg-white border border-slate-200 rounded-lg overflow-x-auto">
+                    <table class="w-full text-sm">
+                      <thead class="border-b border-slate-200">
+                        <tr>
+                          <th scope="col" class="text-left px-4 py-3 font-semibold text-stone">Round</th>
+                          <th scope="col" class="text-right px-4 py-3 font-semibold text-stone">Player</th>
+                          <th scope="col" class="text-center px-4 py-3 font-semibold text-stone">Score</th>
+                          <th scope="col" class="text-left px-4 py-3 font-semibold text-stone">Player</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {[
+                          ...(c.bracket.quarterFinals || []).map((m: any) => ({ ...m, round: "Quarter-final" })),
+                          ...(c.bracket.semiFinals || []).map((m: any) => ({ ...m, round: "Semi-final" })),
+                          ...(c.bracket.final ? [{ ...c.bracket.final, round: "Final" }] : []),
+                        ].map((m: any) => {
+                          const isFinal = m.round === "Final";
+                          const w1 = m.winner === 1;
+                          const w2 = m.winner === 2;
+                          const cls1 = isFinal && w1 ? "font-bold text-yellow-600" : w1 ? "font-semibold text-stone" : "text-slate-600";
+                          const cls2 = isFinal && w2 ? "font-bold text-yellow-600" : w2 ? "font-semibold text-stone" : "text-slate-600";
+                          return (
+                            <tr class="border-b border-slate-100 last:border-0">
+                              <td class="px-4 py-2 text-slate-600 whitespace-nowrap">{m.round}</td>
+                              <td class:list={["px-4 py-2 text-right whitespace-nowrap", cls1]}>
+                                {isFinal && w1 ? "🏆 " : ""}{m.team1}
+                              </td>
+                              <td class="px-4 py-2 text-center font-semibold tabular-nums whitespace-nowrap">
+                                {m.score}
+                              </td>
+                              <td class:list={["px-4 py-2 whitespace-nowrap", cls2]}>
+                                {isFinal && w2 ? "🏆 " : ""}{m.team2}
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                  {c.bracket.final?.notes && (
+                    <p class="text-sm text-slate-600 italic mt-3">{c.bracket.final.notes}</p>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+
           {((c.type === "round-robin" && c.players.length === 0) ||
-            (c.type === "knockout" && c.matches.length === 0)) && (
+            (c.type === "knockout" && c.matches.length === 0) ||
+            (c.type === "singles" && (!c.groups || c.groups.length === 0))) && (
             <p class="text-slate-500 italic">
               Results will appear here once the competition is under way.
             </p>
