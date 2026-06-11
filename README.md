@@ -374,3 +374,4 @@ Every push to `main` triggers a deploy. Every pull request gets a temporary prev
 - **Markdown / JSON in repo** — content lives next to the code, edited via GitHub web UI, no CMS to host.
 - **Formspree** — handles contact form submissions without a backend.
 - **Azure Static Web Apps (Free tier)** — global CDN, free SSL, GitHub-integrated CI/CD, PR previews.
+
