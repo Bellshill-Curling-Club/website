@@ -55,13 +55,6 @@ jobs:
       id-token: write
       contents: read
     steps:
-      - name: Close Pull Request
-        id: closepullrequest
-        uses: Azure/static-web-apps-deploy@v1
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_SALMON_GROUND_02C903003 }}
-          action: "close"
-
       - name: Azure login (OIDC)
         uses: azure/login@v2
         with:
