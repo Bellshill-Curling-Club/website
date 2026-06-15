@@ -345,11 +345,13 @@ In your Static Web App resource → **Custom domains** → **Add** → follow th
 
 Every push to `main` triggers a deploy. Every pull request gets a temporary preview URL.
 
-### Preview environment cleanup (close-PR job)
+### Preview environment cleanup (close-PR job + nightly sweep)
 
-When a pull request is closed (merged or otherwise), the workflow runs a second job — `close_pull_request_job` — that calls `az staticwebapp environment delete` to remove the PR's preview environment so they don't pile up.
+When a pull request is closed (merged or otherwise), the deploy workflow runs a second job — `close_pull_request_job` — that calls the Azure REST API to delete the PR's preview environment so they don't pile up. It waits up to 60 seconds for the preview build to finish registering, then exits cleanly.
 
-That job authenticates to Azure using **OIDC (workload identity federation)** — there are no client secrets stored in GitHub. Setting it up is a one-time job.
+A second workflow — `.github/workflows/cleanup-stale-previews.yml` — runs **nightly at 03:00 UTC** as a safety net. It lists every preview environment in the Static Web App, asks GitHub whether each PR is still open, and deletes any whose PR is closed. This catches anything missed by the close-PR job (races, transient failures, manual closures while the workflow was off).
+
+Both jobs authenticate to Azure using **OIDC (workload identity federation)** — there are no client secrets stored in GitHub. Setting it up is a one-time job.
 
 #### 1. Create / reuse an Entra ID App Registration
 

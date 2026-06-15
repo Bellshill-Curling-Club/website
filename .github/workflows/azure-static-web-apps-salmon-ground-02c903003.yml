@@ -87,17 +87,34 @@ jobs:
 
           # Preview env's API 'name' is the PR number (e.g. "29"). Portal label
           # "#29 - correct deletion" is just buildId + pullRequestTitle stitched.
-          BUILD_NAME=$(az rest --method GET --url "$BUILDS_URL" \
-            --query "value[?name=='${PR_NUMBER}'].name | [0]" -o tsv)
+          # Short poll for the build in case the deploy is still finishing.
+          # A nightly cleanup workflow sweeps up anything missed here.
+          MAX_WAIT=60    # seconds
+          INTERVAL=10
+          ELAPSED=0
+          BUILD_NAME=""
 
-          # Fallback: match by source branch in case the build is named differently.
-          if [ -z "$BUILD_NAME" ] || [ "$BUILD_NAME" = "null" ]; then
+          while [ "$ELAPSED" -lt "$MAX_WAIT" ]; do
             BUILD_NAME=$(az rest --method GET --url "$BUILDS_URL" \
-              --query "value[?sourceBranch=='${PR_BRANCH}' && name!='default'].name | [0]" -o tsv)
-          fi
+              --query "value[?name=='${PR_NUMBER}'].name | [0]" -o tsv)
+
+            if [ -z "$BUILD_NAME" ] || [ "$BUILD_NAME" = "null" ]; then
+              # Fallback: match by source branch (excluding the production default).
+              BUILD_NAME=$(az rest --method GET --url "$BUILDS_URL" \
+                --query "value[?sourceBranch=='${PR_BRANCH}' && name!='default'].name | [0]" -o tsv)
+            fi
+
+            if [ -n "$BUILD_NAME" ] && [ "$BUILD_NAME" != "null" ]; then
+              break
+            fi
+
+            echo "Preview env for PR #${PR_NUMBER} not visible yet (waited ${ELAPSED}s of ${MAX_WAIT}s). Retrying in ${INTERVAL}s..."
+            sleep "$INTERVAL"
+            ELAPSED=$((ELAPSED + INTERVAL))
+          done
 
           if [ -z "$BUILD_NAME" ] || [ "$BUILD_NAME" = "null" ]; then
-            echo "No preview environment matches PR #${PR_NUMBER} (branch '${PR_BRANCH}'). Nothing to delete."
+            echo "No preview environment for PR #${PR_NUMBER} (branch '${PR_BRANCH}') appeared within ${MAX_WAIT}s. The nightly cleanup workflow will sweep it up if it shows up later."
             exit 0
           fi
 
