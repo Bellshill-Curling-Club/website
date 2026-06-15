@@ -345,6 +345,60 @@ In your Static Web App resource → **Custom domains** → **Add** → follow th
 
 Every push to `main` triggers a deploy. Every pull request gets a temporary preview URL.
 
+### Preview environment cleanup (close-PR job)
+
+When a pull request is closed (merged or otherwise), the workflow runs a second job — `close_pull_request_job` — that calls `az staticwebapp environment delete` to remove the PR's preview environment so they don't pile up.
+
+That job authenticates to Azure using **OIDC (workload identity federation)** — there are no client secrets stored in GitHub. Setting it up is a one-time job.
+
+#### 1. Create / reuse an Entra ID App Registration
+
+In the Azure Portal: **Microsoft Entra ID → App registrations → New registration**. Any name (e.g. `github-website-deploy`). Note the **Application (client) ID** and **Directory (tenant) ID** from the Overview blade.
+
+#### 2. Give it permission on the Static Web App
+
+In the Azure Portal, open the Static Web App's **resource group** → **Access control (IAM) → Add role assignment**. Assign **Website Contributor** (or **Contributor**) to the App Registration you just created.
+
+#### 3. Add federated credentials for GitHub
+
+In the App Registration → **Certificates & secrets → Federated credentials → Add credential**. Choose **GitHub Actions deploying Azure resources** and create **two** credentials:
+
+| Purpose                 | Entity type      | Result (subject)                                       |
+| ----------------------- | ---------------- | ------------------------------------------------------ |
+| Push-to-main deploys    | **Branch** → `main` | `repo:Bellshill-Curling-Club/website:ref:refs/heads/main` |
+| Close-PR cleanup runs   | **Pull request** | `repo:Bellshill-Curling-Club/website:pull_request`     |
+
+Both share the same issuer (`https://token.actions.githubusercontent.com`) and audience (`api://AzureADTokenExchange`). The "Pull request" one is required because PR-triggered runs always use the `:pull_request` subject regardless of the target branch — without it you'll get `AADSTS700213: No matching federated identity record found`.
+
+#### 4. Add GitHub repository secrets
+
+**Settings → Secrets and variables → Actions → Secrets tab**:
+
+| Secret                  | Value                                                |
+| ----------------------- | ---------------------------------------------------- |
+| `AZURE_CLIENT_ID`       | Application (client) ID from step 1                  |
+| `AZURE_TENANT_ID`       | Directory (tenant) ID from step 1                    |
+| `AZURE_SUBSCRIPTION_ID` | Subscription ID containing the Static Web App       |
+
+(`AZURE_STATIC_WEB_APPS_API_TOKEN_SALMON_GROUND_02C903003` is added automatically by Azure when the SWA is first created — leave it as-is.)
+
+#### 5. Add GitHub repository variables
+
+**Settings → Secrets and variables → Actions → Variables tab** (note: _Variables_, not Secrets):
+
+| Variable                   | Value                                                       |
+| -------------------------- | ----------------------------------------------------------- |
+| `AZURE_SWA_NAME`           | The Static Web App resource name                            |
+| `AZURE_SWA_RESOURCE_GROUP` | The resource group containing the Static Web App            |
+
+Quickly find both with:
+
+```bash
+az staticwebapp list --query "[].{name:name, rg:resourceGroup}" -o table
+```
+
+The workflow has a `Validate inputs` step that fails fast with a clear message if either variable is missing, so you don't waste time debugging an empty `--name ""` error from the Azure CLI.
+
 ---
 
 ## Project structure
