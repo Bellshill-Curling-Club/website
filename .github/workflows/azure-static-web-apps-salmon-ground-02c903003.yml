@@ -74,29 +74,34 @@ jobs:
         env:
           SWA_NAME: ${{ vars.AZURE_SWA_NAME }}
           SWA_RG: ${{ vars.AZURE_SWA_RESOURCE_GROUP }}
-          PR_BRANCH: ${{ github.event.pull_request.head.ref }}
+          SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_BRANCH: ${{ github.event.pull_request.head.ref }}
         run: |
-          echo "Looking up preview environment for PR #${PR_NUMBER} (branch '${PR_BRANCH}')..."
-          az staticwebapp environment list \
-            --name "$SWA_NAME" \
-            --resource-group "$SWA_RG" \
-            --query "[].{name:name, sourceBranch:sourceBranch, pullRequestTitle:pullRequestTitle}" \
-            -o table || true
+          BUILDS_URL="https://management.azure.com/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${SWA_RG}/providers/Microsoft.Web/staticSites/${SWA_NAME}/builds?api-version=2022-03-01"
 
-          ENV_NAME=$(az staticwebapp environment list \
-            --name "$SWA_NAME" \
-            --resource-group "$SWA_RG" \
-            --query "[?sourceBranch=='$PR_BRANCH'].name | [0]" -o tsv)
+          echo "Current builds for SWA '${SWA_NAME}':"
+          az rest --method GET --url "$BUILDS_URL" \
+            --query "value[].{name:name, branch:sourceBranch, prTitle:pullRequestTitle, status:status}" \
+            -o table
 
-          if [ -z "$ENV_NAME" ] || [ "$ENV_NAME" = "null" ]; then
-            echo "No preview environment found for branch '${PR_BRANCH}' — nothing to delete."
+          # Preview env's API 'name' is the PR number (e.g. "29"). Portal label
+          # "#29 - correct deletion" is just buildId + pullRequestTitle stitched.
+          BUILD_NAME=$(az rest --method GET --url "$BUILDS_URL" \
+            --query "value[?name=='${PR_NUMBER}'].name | [0]" -o tsv)
+
+          # Fallback: match by source branch in case the build is named differently.
+          if [ -z "$BUILD_NAME" ] || [ "$BUILD_NAME" = "null" ]; then
+            BUILD_NAME=$(az rest --method GET --url "$BUILDS_URL" \
+              --query "value[?sourceBranch=='${PR_BRANCH}' && name!='default'].name | [0]" -o tsv)
+          fi
+
+          if [ -z "$BUILD_NAME" ] || [ "$BUILD_NAME" = "null" ]; then
+            echo "No preview environment matches PR #${PR_NUMBER} (branch '${PR_BRANCH}'). Nothing to delete."
             exit 0
           fi
 
-          echo "Deleting preview environment '${ENV_NAME}'..."
-          az staticwebapp environment delete \
-            --name "$SWA_NAME" \
-            --resource-group "$SWA_RG" \
-            --environment-name "$ENV_NAME" \
-            --yes
+          echo "Deleting preview environment '${BUILD_NAME}' (PR #${PR_NUMBER})..."
+          DELETE_URL="https://management.azure.com/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${SWA_RG}/providers/Microsoft.Web/staticSites/${SWA_NAME}/builds/${BUILD_NAME}?api-version=2022-03-01"
+          az rest --method DELETE --url "$DELETE_URL"
+          echo "Delete request accepted for build '${BUILD_NAME}'."
