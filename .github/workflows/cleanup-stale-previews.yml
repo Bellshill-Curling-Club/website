@@ -1,0 +1,91 @@
+name: Cleanup stale SWA preview environments
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # daily at 03:00 UTC
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: read
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Azure login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Validate inputs
+        env:
+          AZURE_SWA_NAME: ${{ vars.AZURE_SWA_NAME }}
+          AZURE_SWA_RESOURCE_GROUP: ${{ vars.AZURE_SWA_RESOURCE_GROUP }}
+        run: |
+          : "${AZURE_SWA_NAME:?AZURE_SWA_NAME repository variable is not set}"
+          : "${AZURE_SWA_RESOURCE_GROUP:?AZURE_SWA_RESOURCE_GROUP repository variable is not set}"
+
+      - name: Delete preview envs for closed PRs
+        env:
+          SWA_NAME: ${{ vars.AZURE_SWA_NAME }}
+          SWA_RG: ${{ vars.AZURE_SWA_RESOURCE_GROUP }}
+          SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BUILDS_URL="https://management.azure.com/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${SWA_RG}/providers/Microsoft.Web/staticSites/${SWA_NAME}/builds?api-version=2022-03-01"
+
+          echo "All builds in '${SWA_NAME}':"
+          az rest --method GET --url "$BUILDS_URL" \
+            --query "value[].{name:name, branch:sourceBranch, prTitle:pullRequestTitle, status:status, created:createdTimeUtc}" \
+            -o table
+
+          # Get every build whose name is numeric (i.e. a PR build, not 'default').
+          PR_BUILDS=$(az rest --method GET --url "$BUILDS_URL" \
+            --query "value[?name!='default'].name" -o tsv)
+
+          if [ -z "$PR_BUILDS" ]; then
+            echo "No preview builds to consider."
+            exit 0
+          fi
+
+          DELETED=0
+          KEPT=0
+          for BUILD_NAME in $PR_BUILDS; do
+            # Skip anything non-numeric, just in case.
+            case "$BUILD_NAME" in
+              ''|*[!0-9]*) echo "Skipping non-numeric build '${BUILD_NAME}'."; continue ;;
+            esac
+
+            PR_STATE=$(gh api "repos/${REPO}/pulls/${BUILD_NAME}" --jq '.state' 2>/dev/null || echo "unknown")
+
+            case "$PR_STATE" in
+              closed)
+                echo "PR #${BUILD_NAME} is closed — deleting preview env..."
+                DELETE_URL="https://management.azure.com/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${SWA_RG}/providers/Microsoft.Web/staticSites/${SWA_NAME}/builds/${BUILD_NAME}?api-version=2022-03-01"
+                if az rest --method DELETE --url "$DELETE_URL"; then
+                  DELETED=$((DELETED + 1))
+                else
+                  echo "  Failed to delete '${BUILD_NAME}' (continuing)."
+                fi
+                ;;
+              open)
+                echo "PR #${BUILD_NAME} is still open — keeping preview env."
+                KEPT=$((KEPT + 1))
+                ;;
+              unknown)
+                echo "Could not determine state of PR #${BUILD_NAME} — keeping preview env to be safe."
+                KEPT=$((KEPT + 1))
+                ;;
+              *)
+                echo "PR #${BUILD_NAME} state '${PR_STATE}' — keeping preview env."
+                KEPT=$((KEPT + 1))
+                ;;
+            esac
+          done
+
+          echo "Done. Deleted: ${DELETED}. Kept: ${KEPT}."
