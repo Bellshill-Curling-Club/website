@@ -69,6 +69,32 @@ Both share the same Issuer (`https://token.actions.githubusercontent.com`) and A
 
 If a credential is missing you'll see `AADSTS700213: No matching federated identity record found for presented assertion subject '…'` — the error tells you the exact subject value to add.
 
+**Re-adding a missing credential from the CLI** (faster than clicking through the portal if one ever gets deleted):
+
+```powershell
+# Branch → main (covers push-to-main + scheduled/manual sweeper runs)
+az ad app federated-credential create `
+  --id <APPLICATION_CLIENT_ID> `
+  --parameters '{
+    "name": "github-bellshill-website-main",
+    "issuer": "https://token.actions.githubusercontent.com",
+    "subject": "repo:Bellshill-Curling-Club/website:ref:refs/heads/main",
+    "audiences": ["api://AzureADTokenExchange"]
+  }'
+
+# Pull request (covers the close-PR job)
+az ad app federated-credential create `
+  --id <APPLICATION_CLIENT_ID> `
+  --parameters '{
+    "name": "github-bellshill-website-pr",
+    "issuer": "https://token.actions.githubusercontent.com",
+    "subject": "repo:Bellshill-Curling-Club/website:pull_request",
+    "audiences": ["api://AzureADTokenExchange"]
+  }'
+```
+
+To see what's currently configured: `az ad app federated-credential list --id <APPLICATION_CLIENT_ID> -o table`.
+
 ### 5. Add GitHub repository secrets
 
 **Settings → Secrets and variables → Actions → Secrets tab → New repository secret**:
@@ -120,7 +146,7 @@ Every push to `main` triggers a deploy. Every pull request gets a temporary prev
 
 | Symptom                                                                                                    | Likely cause / fix                                                                                                                                                                              |
 | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AADSTS700213: No matching federated identity record found for presented assertion subject '…'`            | A federated credential is missing on the App Registration for that subject. Copy the subject from the error and add it (see step 4 above).                                                      |
+| `AADSTS700213: No matching federated identity record found for presented assertion subject '…'`            | A federated credential is missing on the App Registration for that subject. Copy the subject from the error and add it (see step 4 above, including the `az ad app federated-credential create` snippet). Common case: the `ref:refs/heads/main` credential is missing, which breaks both push-to-`main` deploys **and** scheduled/manual `cleanup-stale-previews` runs (cron + `workflow_dispatch` use the default-branch subject, not a separate "schedule" subject). Also verify `AZURE_CLIENT_ID` actually points at the App Registration you edited — easy to add the credential to the wrong app if you have several. |
 | `Login failed with Error: Using auth-type: SERVICE_PRINCIPAL. Not all values are present.`                 | One of `AZURE_CLIENT_ID` / `AZURE_TENANT_ID` / `AZURE_SUBSCRIPTION_ID` is missing or empty in repo secrets (step 5).                                                                            |
 | `ERROR: Static site was '' not found in subscription.`                                                     | `AZURE_SWA_NAME` or `AZURE_SWA_RESOURCE_GROUP` repo variable is missing or empty (step 6). The `Validate inputs` step should catch this — if it didn't, check the variable was actually saved.   |
 | Close-PR job prints `No preview environment for PR #N (branch '...') appeared within 60s.`                | Build hadn't finished registering the preview env in time. The nightly sweeper will catch it — or run it manually from Actions.                                                                  |
