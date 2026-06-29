@@ -1,22 +1,33 @@
 ---
 const links = [
-  { href: '/',             label: 'Home' },
-  { href: '/history',      label: 'History' },
-  { href: '/committee',    label: 'Committee' },
-  { href: '/fixtures',     label: 'Fixtures' },
-  { href: '/scores',       label: 'Scores' },
-  { href: '/constitution', label: 'Constitution' },
-  { href: '/contact',      label: 'Contact' },
+  { href: "/", label: "Home" },
+  { href: "/history", label: "History" },
+  { href: "/committee", label: "Committee" },
+  { href: "/fixtures", label: "Fixtures" },
+  { href: "/scores", label: "Scores" },
+  { href: "/constitution", label: "Constitution" },
+  { href: "/contact", label: "Contact" },
 ];
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
+
 <header class="bg-stone text-white relative">
   <nav
     class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between"
     aria-label="Main navigation"
   >
-    <a href="/" class="font-bold text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">
-      Bellshill Curling Club
+    <a
+      href="/"
+      class="flex items-center gap-3 font-bold text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
+    >
+      <img
+        src="/images/bellshill-logo.png"
+        alt=""
+        class="h-10 w-10 rounded-full bg-white object-contain p-0.5"
+        width="80"
+        height="80"
+      />
+      <span>Bellshill Curling Club</span>
     </a>
 
     <!-- Mobile menu button -->
@@ -28,11 +39,23 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
       aria-controls="nav-menu"
       aria-label="Toggle menu"
     >
-      <svg class="w-6 h-6 fill-current" id="icon-open" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+      <svg
+        class="w-6 h-6 fill-current"
+        id="icon-open"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"></path>
       </svg>
-      <svg class="w-6 h-6 fill-current hidden" id="icon-close" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M6.34 4.93l1.41-1.41L12 7.76l4.24-4.24 1.41 1.41L13.41 9.17l4.24 4.24-1.41 1.41L12 10.59l-4.24 4.24-1.41-1.41 4.24-4.24-4.25-4.25z"/>
+      <svg
+        class="w-6 h-6 fill-current hidden"
+        id="icon-close"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          d="M6.34 4.93l1.41-1.41L12 7.76l4.24-4.24 1.41 1.41L13.41 9.17l4.24 4.24-1.41 1.41L12 10.59l-4.24 4.24-1.41-1.41 4.24-4.24-4.25-4.25z"
+        ></path>
       </svg>
     </button>
 
@@ -41,39 +64,43 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
       id="nav-menu"
       class="hidden md:flex md:gap-1 absolute md:static top-full left-0 right-0 bg-stone md:bg-transparent flex-col md:flex-row px-4 pb-4 md:p-0 gap-1 z-40"
     >
-      {links.map((l) => {
-        const current = path === l.href.replace(/\/$/, '') || (l.href === '/' && path === '/');
-        return (
-          <li>
-            <a
-              href={l.href}
-              class:list={[
-                'block px-3 py-2 rounded hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white',
-                current && 'bg-white/15',
-              ]}
-              aria-current={current ? 'page' : undefined}
-            >
-              {l.label}
-            </a>
-          </li>
-        );
-      })}
+      {
+        links.map((l) => {
+          const current =
+            path === l.href.replace(/\/$/, "") ||
+            (l.href === "/" && path === "/");
+          return (
+            <li>
+              <a
+                href={l.href}
+                class:list={[
+                  "block px-3 py-2 rounded hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white",
+                  current && "bg-white/15",
+                ]}
+                aria-current={current ? "page" : undefined}
+              >
+                {l.label}
+              </a>
+            </li>
+          );
+        })
+      }
     </ul>
   </nav>
 </header>
 
 <script>
-  const toggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('nav-menu');
-  const iconOpen = document.getElementById('icon-open');
-  const iconClose = document.getElementById('icon-close');
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("nav-menu");
+  const iconOpen = document.getElementById("icon-open");
+  const iconClose = document.getElementById("icon-close");
 
-  toggle?.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
-    menu?.classList.toggle('hidden');
-    menu?.classList.toggle('flex');
-    iconOpen?.classList.toggle('hidden');
-    iconClose?.classList.toggle('hidden');
+  toggle?.addEventListener("click", () => {
+    const expanded = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!expanded));
+    menu?.classList.toggle("hidden");
+    menu?.classList.toggle("flex");
+    iconOpen?.classList.toggle("hidden");
+    iconClose?.classList.toggle("hidden");
   });
 </script>
