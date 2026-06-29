@@ -6,16 +6,87 @@ Edit `src/data/club.json` (address, season, contact email, etc).
 
 ## Update the committee list
 
-The names shown on the **Committee** page come from `src/data/club.json`, under
-the `committee` key. There are two lists:
+The Committee page is generated from `src/data/club.json`, under the
+`committee` key. There are two lists:
 
 - `officeBearers` — each entry has a `role` (e.g. `"President"`) and a `name`.
 - `members` — each entry has a `name` and an optional `note`
   (e.g. `"Immediate Past President"`).
 
-Edit the names, save, and the page will update on the next deploy.
+Each entry also takes an optional `photo` field (see _Committee photos_ below).
+If you don't want to set one, use `"photo": null` (or just leave the field out).
+
 **Do not add phone numbers or personal addresses here** — the file is public.
 Members can be contacted via the contact form.
+
+### Add a new committee member
+
+Open `src/data/club.json` and add a new entry to the relevant list. Examples:
+
+```json
+{ "role": "Junior Convenor", "name": "Jane Smith", "photo": null }
+```
+
+or, for an ordinary committee member:
+
+```json
+{ "name": "John Smith", "photo": null }
+```
+
+Commit the change and the page updates on the next deploy.
+
+### Change someone's role
+
+Edit the `role` value on their entry in `officeBearers`. If the same person
+holds two roles (e.g. President and Treasurer), they appear twice — once per
+role. That's intentional.
+
+### Remove someone
+
+Delete their entry (the whole `{ ... }` block including the trailing comma if
+it's not the last item in the list) and commit.
+
+### Committee photos
+
+The Committee page automatically shows a round headshot for each person. If no
+photo is available, it shows a coloured circle with the person's initials as a
+placeholder — no action needed.
+
+To add a real photo:
+
+1. Crop the image to a **square** (roughly 320 × 320 px), centred on the face.
+   JPEG is best for photos; PNG is fine if you need transparency.
+2. Name the file using the person's name, **lowercase with hyphens**, e.g.:
+   - Joyce Cowie → `joyce-cowie.jpg`
+   - David Haggart → `david-haggart.jpg`
+3. Upload it to `public/images/committee/` (in GitHub: navigate to that folder,
+   then **Add file → Upload files**).
+4. Commit. That's it — no JSON edit needed. The page picks it up automatically.
+
+Supported extensions: `.jpg`, `.jpeg`, `.png`, `.webp`, `.avif`.
+
+**Override the auto-match.** If you want to use a different filename, or share
+one photo between two roles for the same person, set the `photo` field on the
+entry in `club.json`:
+
+```json
+{
+  "role": "President",
+  "name": "Joyce Cowie",
+  "photo": "/images/committee/joyce-2025.jpg"
+}
+```
+
+An explicit `photo` always wins over auto-discovery.
+
+**Replacing a photo.** Upload a new file with the same name (GitHub will ask
+you to confirm overwriting it). Browsers may cache the old image for a short
+while — a hard refresh (Ctrl+Shift+R / Cmd+Shift+R) shows the new one
+immediately.
+
+**Removing a photo.** Delete the file from `public/images/committee/` (and
+unset the `photo` field if you'd set one). The card reverts to the initials
+placeholder.
 
 ## Edit the History page
 
