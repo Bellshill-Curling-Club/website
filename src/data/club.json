@@ -6,5 +6,21 @@
   "season": "October to March",
   "social": {
     "facebook": "https://www.facebook.com/BellshillCurlingClub"
+  },
+  "committee": {
+    "officeBearers": [
+      { "role": "President", "name": "Joyce Cowie" },
+      { "role": "Vice President", "name": "Sarah Lean" },
+      { "role": "Secretary", "name": "Gillian Haggart" },
+      { "role": "Treasurer", "name": "Joyce Cowie" },
+      { "role": "Match Secretary (Ex Officio)", "name": "David Haggart" },
+      { "role": "Covid-19 Officer", "name": "Gillian Haggart" }
+    ],
+    "members": [
+      { "name": "Alison Bell", "note": "Immediate Past President" },
+      { "name": "David Buchanan" },
+      { "name": "Jonathan Buchanan" },
+      { "name": "Jan Wilson" }
+    ]
   }
 }
