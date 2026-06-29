@@ -1,12 +1,23 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Card from '../components/Card.astro';
-import Button from '../components/Button.astro';
-import club from '../data/club.json';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
+import Button from "../components/Button.astro";
+import club from "../data/club.json";
 ---
-<BaseLayout title="Home" description="Friendly curling club in Lanarkshire — new members welcome.">
+
+<BaseLayout
+  title="Home"
+  description="Friendly curling club in Lanarkshire — new members welcome."
+>
   <section class="bg-ice">
     <div class="max-w-6xl mx-auto px-4 py-20 text-center">
+      <img
+        src="/images/bellshill-logo.png"
+        alt={`${club.name} crest`}
+        class="mx-auto mb-6 h-32 sm:h-40 md:h-48 w-auto"
+        width="400"
+        height="400"
+      />
       <h1 class="text-4xl sm:text-5xl font-bold text-stone">
         Welcome to {club.name}
       </h1>
@@ -36,14 +47,16 @@ import club from '../data/club.json';
   </section>
 
   <section class="bg-slate-50">
-    <div class="max-w-6xl mx-auto px-4 py-16 grid gap-8 md:grid-cols-2 items-center">
+    <div
+      class="max-w-6xl mx-auto px-4 py-16 grid gap-8 md:grid-cols-2 items-center"
+    >
       <div>
         <h2 class="text-2xl font-bold text-stone mb-3">About the club</h2>
         <p class="mb-3">
           Bellshill Curling Club has been part of Lanarkshire's sporting
-          community for over 150 years. We field teams across local and
-          regional competitions, and pride ourselves on being a welcoming home
-          for both seasoned curlers and complete beginners.
+          community for over 150 years. We field teams across local and regional
+          competitions, and pride ourselves on being a welcoming home for both
+          seasoned curlers and complete beginners.
         </p>
         <p>
           <a class="underline text-stone hover:text-accent" href="/history">
@@ -56,7 +69,9 @@ import club from '../data/club.json';
           <ul class="space-y-2">
             <li><a class="underline" href="/fixtures">Upcoming fixtures</a></li>
             <li><a class="underline" href="/scores">Recent results</a></li>
-            <li><a class="underline" href="/contact">Contact the secretary</a></li>
+            <li>
+              <a class="underline" href="/contact">Contact the secretary</a>
+            </li>
           </ul>
         </Card>
       </div>

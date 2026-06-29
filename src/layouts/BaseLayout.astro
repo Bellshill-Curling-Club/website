@@ -1,48 +1,57 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import club from '../data/club.json';
-import '../styles/global.css';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import club from "../data/club.json";
+import "../styles/global.css";
 
 const { title, description, image, noindex } = Astro.props;
-const pageTitle = title ? `${title} | Bellshill Curling Club` : 'Bellshill Curling Club — Curling in Lanarkshire, Hamilton Scotland';
+const pageTitle = title
+  ? `${title} | Bellshill Curling Club`
+  : "Bellshill Curling Club — Curling in Lanarkshire, Hamilton Scotland";
 const pageDescription =
-  description ?? 'Bellshill Curling Club — a friendly curling club in Lanarkshire, playing at Hamilton Ice Rink. New members welcome. Join curling in Scotland.';
-const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.bellshillcurlingclub.com';
+  description ??
+  "Bellshill Curling Club — a friendly curling club in Lanarkshire, playing at Hamilton Ice Rink. New members welcome. Join curling in Scotland.";
+const siteUrl =
+  Astro.site?.toString().replace(/\/$/, "") ??
+  "https://www.bellshillcurlingclub.com";
 const canonical = new URL(Astro.url.pathname, Astro.site ?? siteUrl).toString();
-const ogImage = new URL(image ?? '/images/og-default.jpg', Astro.site ?? siteUrl).toString();
+const ogImage = new URL(
+  image ?? "/images/og-default.jpg",
+  Astro.site ?? siteUrl,
+).toString();
 
 const orgJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'SportsClub',
+  "@context": "https://schema.org",
+  "@type": "SportsClub",
   name: club.name,
-  sport: 'Curling',
+  sport: "Curling",
   foundingDate: String(club.founded),
   url: siteUrl,
   logo: `${siteUrl}/favicon.svg`,
   image: ogImage,
   address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Muir St',
-    addressLocality: 'Hamilton',
-    addressRegion: 'South Lanarkshire',
-    postalCode: 'ML3 6BS',
-    addressCountry: 'GB',
+    "@type": "PostalAddress",
+    streetAddress: "Muir St",
+    addressLocality: "Hamilton",
+    addressRegion: "South Lanarkshire",
+    postalCode: "ML3 6BS",
+    addressCountry: "GB",
   },
   location: {
-    '@type': 'Place',
+    "@type": "Place",
     name: club.rink,
     address: club.address,
   },
-  areaServed: ['Lanarkshire', 'Hamilton', 'Bellshill', 'Scotland'],
+  areaServed: ["Lanarkshire", "Hamilton", "Bellshill", "Scotland"],
   contactPoint: {
-    '@type': 'ContactPoint',
-    contactType: 'membership enquiries',
+    "@type": "ContactPoint",
+    contactType: "membership enquiries",
     url: `${siteUrl}/contact`,
-    availableLanguage: 'English',
+    availableLanguage: "English",
   },
 };
 ---
+
 <!doctype html>
 <html lang="en-GB">
   <head>
@@ -69,7 +78,7 @@ const orgJsonLd = {
 
     <!-- Theme + icons -->
     <meta name="theme-color" content="#1f3a5f" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap.xml" />
 
@@ -84,9 +93,14 @@ const orgJsonLd = {
       No cookie banner is required because Lite Analytics does not
       set cookies or collect personal data.
     -->
-    <script defer src="https://cdn.liteanalytics.com/script.js" data-id="REPLACE_WITH_LITE_ANALYTICS_ID"></script>
+    <script
+      defer
+      src="https://cdn.liteanalytics.com/script.js"
+      data-id="REPLACE_WITH_LITE_ANALYTICS_ID"></script>
   </head>
-  <body class="min-h-screen flex flex-col bg-white text-slate-800 font-sans antialiased">
+  <body
+    class="min-h-screen flex flex-col bg-white text-slate-800 font-sans antialiased"
+  >
     <a
       href="#main"
       class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:p-3 focus:bg-stone focus:text-white focus:rounded"
