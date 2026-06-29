@@ -9,18 +9,18 @@
   },
   "committee": {
     "officeBearers": [
-      { "role": "President", "name": "Joyce Cowie" },
-      { "role": "Vice President", "name": "Sarah Lean" },
-      { "role": "Secretary", "name": "Gillian Haggart" },
-      { "role": "Treasurer", "name": "Joyce Cowie" },
-      { "role": "Match Secretary (Ex Officio)", "name": "David Haggart" },
-      { "role": "Covid-19 Officer", "name": "Gillian Haggart" }
+      { "role": "President", "name": "Joyce Cowie", "photo": null },
+      { "role": "Vice President", "name": "Sarah Lean", "photo": "/images/committee/sarah-lean.jpg" },
+      { "role": "Secretary", "name": "Gillian Haggart", "photo": null },
+      { "role": "Treasurer", "name": "Joyce Cowie", "photo": null },
+      { "role": "Match Secretary (Ex Officio)", "name": "David Haggart", "photo": null },
+      { "role": "Covid-19 Officer", "name": "Gillian Haggart", "photo": null }
     ],
     "members": [
-      { "name": "Alison Bell", "note": "Immediate Past President" },
-      { "name": "David Buchanan" },
-      { "name": "Jonathan Buchanan" },
-      { "name": "Jan Wilson" }
+      { "name": "Alison Bell", "note": "Immediate Past President", "photo": null },
+      { "name": "David Buchanan", "photo": null },
+      { "name": "Jonathan Buchanan", "photo": null },
+      { "name": "Jan Wilson", "photo": null }
     ]
   }
 }

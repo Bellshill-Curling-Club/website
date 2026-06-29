@@ -6,4 +6,12 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://www.bellshillcurlingclub.com',
   integrations: [tailwind(), sitemap()],
+  vite: {
+    server: {
+      watch: {
+        usePolling: true,
+        interval: 300,
+      },
+    },
+  },
 });
