@@ -4,9 +4,27 @@
 
 Edit `src/data/club.json` (address, season, contact email, etc).
 
+## Update the committee list
+
+The names shown on the **Committee** page come from `src/data/club.json`, under
+the `committee` key. There are two lists:
+
+- `officeBearers` — each entry has a `role` (e.g. `"President"`) and a `name`.
+- `members` — each entry has a `name` and an optional `note`
+  (e.g. `"Immediate Past President"`).
+
+Edit the names, save, and the page will update on the next deploy.
+**Do not add phone numbers or personal addresses here** — the file is public.
+Members can be contacted via the contact form.
+
 ## Edit the History page
 
 Edit `src/pages/history.astro` — change the text between the headings.
+
+## Edit the Constitution page
+
+Edit `src/pages/constitution.astro` — the constitution, bye-laws and etiquette
+are plain HTML headings and paragraphs. Change the wording in place and commit.
 
 ## Add a new page
 
