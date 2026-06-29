@@ -17,12 +17,13 @@ That's it. Through the season you only need to come back to add scores as games 
 
 ## Where to find each thing
 
-| What you want to change                  | Go to                                          |
-| ---------------------------------------- | ---------------------------------------------- |
-| Fixtures (dates, rinks, reserves)        | [Updating fixtures](fixtures.md)               |
-| Scores and competition tables            | [Updating scores](scores.md)                   |
-| Club address, email, season label        | [Club details, history, pages, images](club-details.md) |
-| History page wording                     | [Club details, history, pages, images](club-details.md#edit-the-history-page) |
-| Add a new page (e.g. Juniors)            | [Club details, history, pages, images](club-details.md#add-a-new-page) |
-| Upload a photo                           | [Club details, history, pages, images](club-details.md#upload-images) |
-| Contact-form recipient                   | [Club details, history, pages, images](club-details.md#configuring-the-contact-form-formspree) |
+| What you want to change               | Go to                                                                                          |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Fixtures (dates, rinks, reserves)     | [Updating fixtures](fixtures.md)                                                               |
+| Scores and competition tables         | [Updating scores](scores.md)                                                                   |
+| Committee — add/remove people, photos | [Club details, history, pages, images](club-details.md#update-the-committee-list)              |
+| Club address, email, season label     | [Club details, history, pages, images](club-details.md)                                        |
+| History page wording                  | [Club details, history, pages, images](club-details.md#edit-the-history-page)                  |
+| Add a new page (e.g. Juniors)         | [Club details, history, pages, images](club-details.md#add-a-new-page)                         |
+| Upload a photo                        | [Club details, history, pages, images](club-details.md#upload-images)                          |
+| Contact-form recipient                | [Club details, history, pages, images](club-details.md#configuring-the-contact-form-formspree) |

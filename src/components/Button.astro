@@ -1,16 +1,23 @@
 ---
-const { href, type = 'button', variant = 'primary' } = Astro.props;
+const { href, type = "button", variant = "primary" } = Astro.props;
 const base =
-  'inline-block px-6 py-3 rounded-lg font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-stone transition';
+  "inline-block px-6 py-3 rounded-lg font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-stone transition";
 const variants = {
-  primary: 'bg-accent text-white hover:bg-orange-700',
-  secondary: 'bg-stone text-white hover:bg-slate-700',
-  outline: 'border border-stone text-stone hover:bg-ice',
+  primary: "bg-accent text-white hover:bg-orange-800",
+  secondary: "bg-stone text-white hover:bg-slate-700",
+  outline: "border border-stone text-stone hover:bg-ice",
 };
 const classes = `${base} ${variants[variant] ?? variants.primary}`;
 ---
-{href ? (
-  <a href={href} class={classes}><slot /></a>
-) : (
-  <button type={type} class={classes}><slot /></button>
-)}
+
+{
+  href ? (
+    <a href={href} class={classes}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={classes}>
+      <slot />
+    </button>
+  )
+}
