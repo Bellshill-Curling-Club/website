@@ -1,10 +1,67 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Card from '../components/Card.astro';
-import club from '../data/club.json';
+import { readdirSync, existsSync } from "node:fs";
+import { join } from "node:path";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
+import club from "../data/club.json";
 
-const { officeBearers, members } = club.committee;
+type Person = {
+  name: string;
+  role?: string;
+  note?: string;
+  photo?: string | null;
+};
+const officeBearers = club.committee.officeBearers as Person[];
+const members = club.committee.members as Person[];
+
+// Auto-discovery: any file in public/images/committee/ named after a committee
+// member's slug (e.g. "sarah-lean.jpg") is used as their photo automatically.
+const slug = (name: string) =>
+  name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+const committeeDir = join(process.cwd(), "public", "images", "committee");
+const availablePhotos: Record<string, string> = {};
+if (existsSync(committeeDir)) {
+  for (const file of readdirSync(committeeDir)) {
+    const match = file.match(/^(.+)\.(jpe?g|png|webp|avif)$/i);
+    if (match) availablePhotos[match[1].toLowerCase()] = file;
+  }
+}
+const photoFor = (p: Person): string | null => {
+  if (p.photo) return p.photo;
+  const file = availablePhotos[slug(p.name)];
+  return file ? `/images/committee/${file}` : null;
+};
+
+const initials = (name: string) =>
+  name
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((w) => w[0]!.toUpperCase())
+    .slice(0, 2)
+    .join("");
+
+// Deterministic colour per person so placeholder avatars stay consistent
+const palette = [
+  "bg-stone",
+  "bg-accent",
+  "bg-slate-600",
+  "bg-emerald-700",
+  "bg-indigo-700",
+  "bg-rose-700",
+];
+const colourFor = (name: string) => {
+  let h = 0;
+  for (const c of name) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  return palette[h % palette.length];
+};
 ---
+
 <BaseLayout
   title="Committee"
   description="Meet the committee of Bellshill Curling Club — office bearers and members."
@@ -12,33 +69,91 @@ const { officeBearers, members } = club.committee;
   <section class="max-w-4xl mx-auto px-4 py-12">
     <h1 class="text-3xl font-bold text-stone mb-2">Our Committee</h1>
     <p class="mb-8">
-      The club is run by a volunteer Executive Committee elected at the
-      Annual General Meeting. To get in touch with any member of the
-      committee, please use our <a class="underline text-stone hover:text-accent" href="/contact">contact form</a>
+      The club is run by a volunteer Executive Committee elected at the Annual
+      General Meeting. To get in touch with any member of the committee, please
+      use our <a class="underline text-stone hover:text-accent" href="/contact"
+        >contact form</a
+      >
       and your message will be passed on.
     </p>
 
     <h2 class="text-2xl font-semibold text-stone mb-4">Office bearers</h2>
     <div class="grid gap-4 sm:grid-cols-2 mb-10">
-      {officeBearers.map((p) => (
-        <Card title={p.role}>
-          <p>{p.name}</p>
-        </Card>
-      ))}
+      {
+        officeBearers.map((p) => {
+          const photo = photoFor(p);
+          return (
+            <Card title={p.role}>
+              <div class="flex flex-col items-center text-center">
+                {photo ? (
+                  <img
+                    src={photo}
+                    alt={`${p.name} headshot`}
+                    class="h-32 w-32 rounded-full object-cover mb-3"
+                    width="320"
+                    height="320"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div
+                    class:list={[
+                      "h-32 w-32 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-semibold select-none",
+                      colourFor(p.name),
+                    ]}
+                    aria-hidden="true"
+                  >
+                    {initials(p.name)}
+                  </div>
+                )}
+                <p>{p.name}</p>
+              </div>
+            </Card>
+          );
+        })
+      }
     </div>
 
     <h2 class="text-2xl font-semibold text-stone mb-4">Committee members</h2>
     <div class="grid gap-4 sm:grid-cols-2">
-      {members.map((m) => (
-        <Card title={m.name}>
-          {m.note && <p class="text-sm text-slate-600">{m.note}</p>}
-        </Card>
-      ))}
+      {
+        members.map((m) => {
+          const photo = photoFor(m);
+          return (
+            <Card title={m.name}>
+              <div class="flex flex-col items-center text-center">
+                {photo ? (
+                  <img
+                    src={photo}
+                    alt={`${m.name} headshot`}
+                    class="h-32 w-32 rounded-full object-cover mb-3"
+                    width="320"
+                    height="320"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div
+                    class:list={[
+                      "h-32 w-32 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-semibold select-none",
+                      colourFor(m.name),
+                    ]}
+                    aria-hidden="true"
+                  >
+                    {initials(m.name)}
+                  </div>
+                )}
+                {m.note && <p class="text-sm text-slate-600">{m.note}</p>}
+              </div>
+            </Card>
+          );
+        })
+      }
     </div>
 
     <p class="mt-10 text-sm text-slate-600">
       Interested in how the club is run? Read our
-      <a class="underline text-stone hover:text-accent" href="/constitution">constitution and rules</a>.
+      <a class="underline text-stone hover:text-accent" href="/constitution"
+        >constitution and rules</a
+      >.
     </p>
   </section>
 </BaseLayout>
