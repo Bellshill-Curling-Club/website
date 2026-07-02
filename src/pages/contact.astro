@@ -20,7 +20,6 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjkoqpe";
       action={FORMSPREE_ENDPOINT}
       method="POST"
       class="space-y-4"
-      novalidate
     >
       <div>
         <label for="name" class="block font-medium"
@@ -84,73 +83,6 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjkoqpe";
       >
         Send message
       </button>
-
-      <p
-        id="form-status"
-        role="status"
-        aria-live="polite"
-        class="text-sm min-h-[1.25rem]"
-      >
-      </p>
     </form>
   </section>
-
-  <script is:inline>
-    (function () {
-      const form = document.getElementById("contact-form");
-      const status = document.getElementById("form-status");
-      if (!form || !status) return;
-
-      const setStatus = (message, kind) => {
-        status.textContent = message;
-        status.className = "text-sm min-h-[1.25rem]";
-        if (kind === "ok") status.classList.add("text-green-700");
-        if (kind === "err") status.classList.add("text-red-700");
-      };
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        setStatus("", null);
-
-        if (!form.checkValidity()) {
-          setStatus("Please complete all fields correctly.", "err");
-          form.reportValidity();
-          return;
-        }
-
-        if (form.action.includes("REPLACE_ME")) {
-          setStatus(
-            "Form is not configured yet. Please email the club directly.",
-            "err",
-          );
-          return;
-        }
-
-        try {
-          const res = await fetch(form.action, {
-            method: "POST",
-            body: new FormData(form),
-            headers: { Accept: "application/json" },
-          });
-
-          if (res.ok) {
-            form.reset();
-            setStatus("Thanks! Your message has been sent.", "ok");
-          } else {
-            const data = await res.json().catch(() => null);
-            console.error("Formspree error:", res.status, data);
-            const msg =
-              (data &&
-                data.errors &&
-                data.errors[0] &&
-                data.errors[0].message) ||
-              `Sorry, something went wrong (status ${res.status}). Please email us instead.`;
-            setStatus(msg, "err");
-          }
-        } catch (_) {
-          setStatus("Network error. Please try again later.", "err");
-        }
-      });
-    })();
-  </script>
 </BaseLayout>
