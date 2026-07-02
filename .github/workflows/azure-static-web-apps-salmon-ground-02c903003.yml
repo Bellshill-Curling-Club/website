@@ -1,4 +1,4 @@
-name: Website build and deployment
+name: Website build and deployment (legacy -testing)
 
 on:
   push:
