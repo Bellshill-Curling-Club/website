@@ -138,6 +138,28 @@ The job lists every preview build, checks each PR's state on GitHub, and deletes
 
 In your Static Web App resource → **Custom domains → Add** → follow the CNAME instructions for your DNS provider. SSL certificates are issued automatically.
 
+## Domain & DNS
+
+- **Domain:** `bellshillcurlingclub.com`
+- **Registrar:** [Namecheap](https://www.namecheap.com/)
+- **Purchased:** 3 July 2026
+- **Registered for:** 3 years — **renewal due 3 July 2029**
+- **DNS hosting:** Azure DNS (zone `bellshillcurlingclub.com`, in the same Azure subscription as the Static Web App)
+
+At Namecheap, the domain's **nameservers** are delegated to the Azure DNS zone. All DNS records (A / CNAME / TXT / MX etc.) are managed in Azure — do **not** add records at Namecheap. To change nameservers or transfer the domain later, both sides must be updated in lockstep or the site will go offline.
+
+To add or edit a record (e.g. a new subdomain or an email verification TXT), edit the Azure DNS zone via the Azure Portal or the CLI:
+
+```bash
+az network dns record-set list \
+  --resource-group <dns-rg> \
+  --zone-name bellshillcurlingclub.com
+```
+
+Changes usually propagate within a few minutes because Azure DNS TTLs are low.
+
+**Renewal reminder:** put 3 July 2029 in the committee calendar. Namecheap will also email the registered contact, but don't rely solely on that.
+
 ## Subsequent deployments
 
 Every push to `main` triggers a deploy. Every pull request gets a temporary preview URL. PR previews are cleaned up automatically by the close-PR job (with the nightly sweeper as a safety net).
