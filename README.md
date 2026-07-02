@@ -1,8 +1,7 @@
 # Bellshill Curling Club Website
 
-Modern static website built with [Astro](https://astro.build) + [Tailwind CSS](https://tailwindcss.com), hosted on **Azure Static Web Apps**, with a contact form powered by **Formspree**.
+Modern static website built with [Astro](https://astro.build) + [Tailwind CSS](https://tailwindcss.com), hosted on **Azure Static Web Apps**, with a contact form powered by **Formspree**, spam protection from **Cloudflare Turnstile**, and cookieless analytics from **Lite Analytics**.
 
-🔗 Live site: <https://salmon-ground-02c903003.7.azurestaticapps.net>
 
 ## Quick start (developers)
 

@@ -109,12 +109,51 @@ are plain HTML headings and paragraphs. Change the wording in place and commit.
 2. Click **Add file → Upload files**.
 3. Reference the image as `/images/your-photo.jpg` in any page.
 
-## Configuring the contact form (Formspree)
+## Configuring the contact form (Formspree + Cloudflare Turnstile)
+
+The contact form has two moving parts:
+
+1. **Formspree** — delivers submissions to a real email address.
+2. **Cloudflare Turnstile** — a privacy-friendly, invisible CAPTCHA that stops
+   bot spam. Users stay on our site the whole time.
+
+### Formspree setup
 
 1. Sign up free at <https://formspree.io/>.
 2. Create a new form. Set the recipient email (e.g. the secretary's address).
 3. Copy the form's endpoint URL — it looks like `https://formspree.io/f/abcdwxyz`.
-4. Edit `src/pages/contact.astro` and replace the value of `FORMSPREE_ENDPOINT` with your endpoint.
-5. Commit. Done.
+4. Edit `src/pages/contact.astro` and replace the value of `FORMSPREE_ENDPOINT`
+   with your endpoint.
+5. In the Formspree dashboard for the form, go to **Settings** and
+   **disable the built-in reCAPTCHA**. If it's left on, the form will fail
+   with a `403 Forbidden` error because Formspree's reCAPTCHA is not
+   compatible with AJAX submissions.
+6. Commit. Done.
 
-To change the recipient email later, just update it in the Formspree dashboard — no code change needed.
+To change the recipient email later, just update it in the Formspree dashboard
+— no code change needed.
+
+### Cloudflare Turnstile setup
+
+1. Sign in to <https://dash.cloudflare.com/> (free account).
+2. Go to **Turnstile** in the left sidebar → **Add site**.
+3. Give it a name (e.g. "Bellshill Curling Club contact form"), pick
+   **Managed** widget mode.
+4. Under **Hostname management**, add every hostname the form will load on:
+   - `bellshillcurlingclub.com`
+   - `www.bellshillcurlingclub.com`
+   - `localhost` (only if you plan to test with `npm run dev`)
+   - Any Azure Static Web App preview URL you want to test on
+     (e.g. `salmon-ground-…-preview-….azurestaticapps.net`)
+5. Copy the **Site key** (starts with `0x...`).
+6. Edit `src/pages/contact.astro` and replace the value of
+   `TURNSTILE_SITE_KEY`.
+7. **Never commit or share the Secret Key.** It is not used by this website
+   (we have no backend to verify tokens with) and would be a security risk
+   if leaked. If you accidentally exposed it, rotate it in the Cloudflare
+   dashboard.
+
+The Content Security Policy in `staticwebapp.config.json` already permits
+Cloudflare Turnstile. If you ever move to a different CAPTCHA or spam
+protection service, you'll need to update the CSP too — see the note in
+`docs/project-structure.md`.
