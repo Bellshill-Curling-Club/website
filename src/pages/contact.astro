@@ -137,13 +137,14 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjkoqpe";
             form.reset();
             setStatus("Thanks! Your message has been sent.", "ok");
           } else {
-            const data = await res.json().catch(() => ({}));
+            const data = await res.json().catch(() => null);
+            console.error("Formspree error:", res.status, data);
             const msg =
               (data &&
                 data.errors &&
                 data.errors[0] &&
                 data.errors[0].message) ||
-              "Sorry, something went wrong. Please email us instead.";
+              `Sorry, something went wrong (status ${res.status}). Please email us instead.`;
             setStatus(msg, "err");
           }
         } catch (_) {
