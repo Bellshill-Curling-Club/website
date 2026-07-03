@@ -7,7 +7,7 @@ const TURNSTILE_SITE_KEY = "0x4AAAAAADueXPgFW17i4J3M";
 
 <BaseLayout
   title="Contact Us"
-  description="Get in touch with Bellshill Curling Club."
+  description="Contact Bellshill Curling Club — get in touch about membership, joining a team, taster sessions or general enquiries at Hamilton Ice Rink."
 >
   <section class="max-w-xl mx-auto px-4 py-12">
     <h1 class="text-3xl font-bold text-stone mb-2">Contact Us</h1>
@@ -104,10 +104,7 @@ const TURNSTILE_SITE_KEY = "0x4AAAAAADueXPgFW17i4J3M";
     async
     defer></script>
 
-  <script
-    is:inline
-    define:vars={{ endpoint: FORMSPREE_ENDPOINT }}
-  >
+  <script is:inline define:vars={{ endpoint: FORMSPREE_ENDPOINT }}>
     (function () {
       const form = document.getElementById("contact-form");
       const status = document.getElementById("form-status");

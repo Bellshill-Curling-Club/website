@@ -10,7 +10,9 @@ const fmt = (d: string) =>
     year: "numeric",
   });
 
-const recent = [...scores].sort((a: any, b: any) => b.date.localeCompare(a.date));
+const recent = [...scores].sort((a: any, b: any) =>
+  b.date.localeCompare(a.date),
+);
 
 const resultLabel = (s: any) => {
   if (s.winner === 1) return "Win";
@@ -19,7 +21,11 @@ const resultLabel = (s: any) => {
 };
 const resultColour = (s: any) => {
   const label = resultLabel(s);
-  return label === "Win" ? "text-green-700" : label === "Loss" ? "text-red-700" : "text-slate-600";
+  return label === "Win"
+    ? "text-green-700"
+    : label === "Loss"
+      ? "text-red-700"
+      : "text-slate-600";
 };
 const isExternal = (s: any) => /bellshill/i.test(s.team1);
 
@@ -31,7 +37,7 @@ const tabs = [
 
 <BaseLayout
   title="Scores"
-  description="Latest results and internal club competition standings for Bellshill Curling Club."
+  description="Latest match results, internal competition standings and trophy winners for Bellshill Curling Club's league and cup competitions."
 >
   <section class="max-w-6xl mx-auto px-4 py-12">
     <h1 class="text-3xl font-bold text-stone mb-2">Scores</h1>
@@ -93,7 +99,10 @@ const tabs = [
                   <tr class="border-b border-slate-200">
                     <th scope="col" class="text-left px-4 py-3" />
                     {c.players.map((p: any) => (
-                      <th scope="col" class="px-4 py-3 text-center font-semibold text-stone whitespace-nowrap">
+                      <th
+                        scope="col"
+                        class="px-4 py-3 text-center font-semibold text-stone whitespace-nowrap"
+                      >
                         {Array.isArray(p) ? (
                           <span class="block leading-tight">
                             {p.map((line: string) => (
@@ -110,7 +119,10 @@ const tabs = [
                 <tbody>
                   {c.rows.map((row: any) => (
                     <tr class="border-b border-slate-100 last:border-0">
-                      <th scope="row" class="px-4 py-2 font-medium text-stone whitespace-nowrap">
+                      <th
+                        scope="row"
+                        class="px-4 py-2 font-medium text-stone whitespace-nowrap"
+                      >
                         {row.player}
                       </th>
                       {row.scores.map((s: string) => (
@@ -127,7 +139,9 @@ const tabs = [
                       const isPosition = /position/i.test(stat.label);
                       return (
                         <tr>
-                          <th scope="row" class="px-4 py-2 text-slate-600">{stat.label}</th>
+                          <th scope="row" class="px-4 py-2 text-slate-600">
+                            {stat.label}
+                          </th>
                           {stat.values.map((v: number) => (
                             <td
                               class:list={[
@@ -154,22 +168,40 @@ const tabs = [
               <table class="w-full text-sm">
                 <thead class="border-b border-slate-200">
                   <tr>
-                    <th scope="col" class="text-left px-4 py-3 font-semibold text-stone">
+                    <th
+                      scope="col"
+                      class="text-left px-4 py-3 font-semibold text-stone"
+                    >
                       Date
                     </th>
-                    <th scope="col" class="text-left px-4 py-3 font-semibold text-stone">
+                    <th
+                      scope="col"
+                      class="text-left px-4 py-3 font-semibold text-stone"
+                    >
                       Round
                     </th>
-                    <th scope="col" class="text-right px-4 py-3 font-semibold text-stone">
+                    <th
+                      scope="col"
+                      class="text-right px-4 py-3 font-semibold text-stone"
+                    >
                       Team
                     </th>
-                    <th scope="col" class="text-center px-4 py-3 font-semibold text-stone">
+                    <th
+                      scope="col"
+                      class="text-center px-4 py-3 font-semibold text-stone"
+                    >
                       Score
                     </th>
-                    <th scope="col" class="text-left px-4 py-3 font-semibold text-stone">
+                    <th
+                      scope="col"
+                      class="text-left px-4 py-3 font-semibold text-stone"
+                    >
                       Team
                     </th>
-                    <th scope="col" class="text-center px-4 py-3 font-semibold text-stone">
+                    <th
+                      scope="col"
+                      class="text-center px-4 py-3 font-semibold text-stone"
+                    >
                       Score
                     </th>
                   </tr>
@@ -180,23 +212,31 @@ const tabs = [
                     const trophy1 = isFinal && m.winner === 1 ? "🏆 " : "";
                     const trophy2 = isFinal && m.winner === 2 ? "🏆 " : "";
                     const winnerClass1 =
-                      isFinal && m.winner === 1 ? "font-bold text-yellow-600" : "font-medium";
+                      isFinal && m.winner === 1
+                        ? "font-bold text-yellow-600"
+                        : "font-medium";
                     const winnerClass2 =
-                      isFinal && m.winner === 2 ? "font-bold text-yellow-600" : "font-medium";
+                      isFinal && m.winner === 2
+                        ? "font-bold text-yellow-600"
+                        : "font-medium";
                     return (
                       <tr class="border-b border-slate-100 last:border-0">
                         <td class="px-4 py-2 text-slate-600 whitespace-nowrap">
                           {m.date}
                         </td>
-                        <td class="px-4 py-2 text-slate-600">{m.round || ""}</td>
+                        <td class="px-4 py-2 text-slate-600">
+                          {m.round || ""}
+                        </td>
                         <td class:list={["px-4 py-2 text-right", winnerClass1]}>
-                          {trophy1}{m.team1}
+                          {trophy1}
+                          {m.team1}
                         </td>
                         <td class="px-4 py-2 text-center font-semibold tabular-nums">
                           {m.score1}
                         </td>
                         <td class:list={["px-4 py-2", winnerClass2]}>
-                          {trophy2}{m.team2}
+                          {trophy2}
+                          {m.team2}
                         </td>
                         <td class="px-4 py-2 text-center font-semibold tabular-nums">
                           {m.score2}
@@ -212,7 +252,9 @@ const tabs = [
           {c.type === "singles" && c.groups && c.groups.length > 0 && (
             <div class="space-y-8">
               {c.intro && (
-                <p class="text-slate-700 leading-relaxed max-w-3xl">{c.intro}</p>
+                <p class="text-slate-700 leading-relaxed max-w-3xl">
+                  {c.intro}
+                </p>
               )}
 
               <div class="grid gap-6 md:grid-cols-2">
@@ -225,9 +267,17 @@ const tabs = [
                       <table class="w-full text-sm">
                         <thead>
                           <tr class="border-b border-slate-200">
-                            <th scope="col" class="text-left px-4 py-2 font-semibold text-stone">Player</th>
+                            <th
+                              scope="col"
+                              class="text-left px-4 py-2 font-semibold text-stone"
+                            >
+                              Player
+                            </th>
                             {c.columns.map((col: string) => (
-                              <th scope="col" class="px-4 py-2 text-center font-semibold text-stone whitespace-nowrap">
+                              <th
+                                scope="col"
+                                class="px-4 py-2 text-center font-semibold text-stone whitespace-nowrap"
+                              >
                                 {col}
                               </th>
                             ))}
@@ -236,7 +286,10 @@ const tabs = [
                         <tbody>
                           {g.rows.map((row: any) => (
                             <tr class="border-b border-slate-100 last:border-0">
-                              <th scope="row" class="px-4 py-2 font-medium text-stone whitespace-nowrap text-left">
+                              <th
+                                scope="row"
+                                class="px-4 py-2 font-medium text-stone whitespace-nowrap text-left"
+                              >
                                 {row.player}
                               </th>
                               {row.values.map((v: any, vi: number) => {
@@ -246,7 +299,9 @@ const tabs = [
                                   <td
                                     class:list={[
                                       "px-4 py-2 text-center tabular-nums whitespace-nowrap",
-                                      isWinner ? "font-bold text-yellow-600" : "",
+                                      isWinner
+                                        ? "font-bold text-yellow-600"
+                                        : "",
                                     ]}
                                   >
                                     {isWinner ? `🏆 ${v}` : v}
@@ -269,34 +324,86 @@ const tabs = [
                     <table class="w-full text-sm">
                       <thead class="border-b border-slate-200">
                         <tr>
-                          <th scope="col" class="text-left px-4 py-3 font-semibold text-stone">Round</th>
-                          <th scope="col" class="text-right px-4 py-3 font-semibold text-stone">Player</th>
-                          <th scope="col" class="text-center px-4 py-3 font-semibold text-stone">Score</th>
-                          <th scope="col" class="text-left px-4 py-3 font-semibold text-stone">Player</th>
+                          <th
+                            scope="col"
+                            class="text-left px-4 py-3 font-semibold text-stone"
+                          >
+                            Round
+                          </th>
+                          <th
+                            scope="col"
+                            class="text-right px-4 py-3 font-semibold text-stone"
+                          >
+                            Player
+                          </th>
+                          <th
+                            scope="col"
+                            class="text-center px-4 py-3 font-semibold text-stone"
+                          >
+                            Score
+                          </th>
+                          <th
+                            scope="col"
+                            class="text-left px-4 py-3 font-semibold text-stone"
+                          >
+                            Player
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         {[
-                          ...(c.bracket.quarterFinals || []).map((m: any) => ({ ...m, round: "Quarter-final" })),
-                          ...(c.bracket.semiFinals || []).map((m: any) => ({ ...m, round: "Semi-final" })),
-                          ...(c.bracket.final ? [{ ...c.bracket.final, round: "Final" }] : []),
+                          ...(c.bracket.quarterFinals || []).map((m: any) => ({
+                            ...m,
+                            round: "Quarter-final",
+                          })),
+                          ...(c.bracket.semiFinals || []).map((m: any) => ({
+                            ...m,
+                            round: "Semi-final",
+                          })),
+                          ...(c.bracket.final
+                            ? [{ ...c.bracket.final, round: "Final" }]
+                            : []),
                         ].map((m: any) => {
                           const isFinal = m.round === "Final";
                           const w1 = m.winner === 1;
                           const w2 = m.winner === 2;
-                          const cls1 = isFinal && w1 ? "font-bold text-yellow-600" : w1 ? "font-semibold text-stone" : "text-slate-600";
-                          const cls2 = isFinal && w2 ? "font-bold text-yellow-600" : w2 ? "font-semibold text-stone" : "text-slate-600";
+                          const cls1 =
+                            isFinal && w1
+                              ? "font-bold text-yellow-600"
+                              : w1
+                                ? "font-semibold text-stone"
+                                : "text-slate-600";
+                          const cls2 =
+                            isFinal && w2
+                              ? "font-bold text-yellow-600"
+                              : w2
+                                ? "font-semibold text-stone"
+                                : "text-slate-600";
                           return (
                             <tr class="border-b border-slate-100 last:border-0">
-                              <td class="px-4 py-2 text-slate-600 whitespace-nowrap">{m.round}</td>
-                              <td class:list={["px-4 py-2 text-right whitespace-nowrap", cls1]}>
-                                {isFinal && w1 ? "🏆 " : ""}{m.team1}
+                              <td class="px-4 py-2 text-slate-600 whitespace-nowrap">
+                                {m.round}
+                              </td>
+                              <td
+                                class:list={[
+                                  "px-4 py-2 text-right whitespace-nowrap",
+                                  cls1,
+                                ]}
+                              >
+                                {isFinal && w1 ? "🏆 " : ""}
+                                {m.team1}
                               </td>
                               <td class="px-4 py-2 text-center font-semibold tabular-nums whitespace-nowrap">
                                 {m.score}
                               </td>
-                              <td class:list={["px-4 py-2 whitespace-nowrap", cls2]}>
-                                {isFinal && w2 ? "🏆 " : ""}{m.team2}
+                              <td
+                                class:list={[
+                                  "px-4 py-2 whitespace-nowrap",
+                                  cls2,
+                                ]}
+                              >
+                                {isFinal && w2 ? "🏆 " : ""}
+                                {m.team2}
                               </td>
                             </tr>
                           );
@@ -305,7 +412,9 @@ const tabs = [
                     </table>
                   </div>
                   {c.bracket.final?.notes && (
-                    <p class="text-sm text-slate-600 italic mt-3">{c.bracket.final.notes}</p>
+                    <p class="text-sm text-slate-600 italic mt-3">
+                      {c.bracket.final.notes}
+                    </p>
                   )}
                 </div>
               )}
@@ -323,7 +432,13 @@ const tabs = [
       ))
     }
 
-    <div role="tabpanel" id="panel-recent" aria-labelledby="tab-recent" data-panel="recent" class="tab-panel hidden">
+    <div
+      role="tabpanel"
+      id="panel-recent"
+      aria-labelledby="tab-recent"
+      data-panel="recent"
+      class="tab-panel hidden"
+    >
       <h2 class="text-2xl font-bold text-stone mb-4">Recent Results</h2>
       {
         recent.length === 0 ? (
@@ -333,13 +448,20 @@ const tabs = [
             {recent.map((s: any) => (
               <li class="flex items-center justify-between border border-slate-200 rounded-lg p-4 bg-white">
                 <div>
-                  <p class="font-semibold">{s.team1} v {s.team2}</p>
+                  <p class="font-semibold">
+                    {s.team1} v {s.team2}
+                  </p>
                   <p class="text-sm text-slate-500">
                     {fmt(s.date)} · {s.competition}
                   </p>
                 </div>
                 <div class="text-right">
-                  <div class:list={["text-xl font-bold", isExternal(s) ? resultColour(s) : "text-stone"]}>
+                  <div
+                    class:list={[
+                      "text-xl font-bold",
+                      isExternal(s) ? resultColour(s) : "text-stone",
+                    ]}
+                  >
                     {s.score1} – {s.score2}
                   </div>
                   {isExternal(s) && (
@@ -389,10 +511,16 @@ const tabs = [
   const tabList = document.querySelector<HTMLElement>("[role=tablist]");
   tabList?.addEventListener("keydown", (e) => {
     const tabArr = Array.from(tabs);
-    const idx = tabArr.findIndex((t) => t.dataset.tab === document.querySelector<HTMLButtonElement>("[aria-selected=true]")?.dataset.tab);
+    const idx = tabArr.findIndex(
+      (t) =>
+        t.dataset.tab ===
+        document.querySelector<HTMLButtonElement>("[aria-selected=true]")
+          ?.dataset.tab,
+    );
     let next = idx;
     if (e.key === "ArrowRight") next = (idx + 1) % tabArr.length;
-    else if (e.key === "ArrowLeft") next = (idx - 1 + tabArr.length) % tabArr.length;
+    else if (e.key === "ArrowLeft")
+      next = (idx - 1 + tabArr.length) % tabArr.length;
     else if (e.key === "Home") next = 0;
     else if (e.key === "End") next = tabArr.length - 1;
     else return;

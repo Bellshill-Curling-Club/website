@@ -1,12 +1,12 @@
 ---
 const links = [
   { href: "/", label: "Home" },
-  { href: "/history", label: "History" },
-  { href: "/committee", label: "Committee" },
-  { href: "/fixtures", label: "Fixtures" },
-  { href: "/scores", label: "Scores" },
-  { href: "/constitution", label: "Constitution" },
-  { href: "/contact", label: "Contact" },
+  { href: "/history/", label: "History" },
+  { href: "/committee/", label: "Committee" },
+  { href: "/fixtures/", label: "Fixtures" },
+  { href: "/scores/", label: "Scores" },
+  { href: "/constitution/", label: "Constitution" },
+  { href: "/contact/", label: "Contact" },
 ];
 const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
@@ -22,7 +22,7 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
     >
       <img
         src="/images/bellshill-logo.png"
-        alt=""
+        alt="Bellshill Curling Club crest"
         class="h-10 w-10 rounded-full bg-white object-contain p-0.5"
         width="80"
         height="80"
