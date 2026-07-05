@@ -1,18 +1,27 @@
 ---
-const { href, type = "button", variant = "primary" } = Astro.props;
+const {
+  href,
+  type = "button",
+  variant = "primary",
+  class: className = "",
+  target,
+  rel,
+} = Astro.props;
 const base =
   "inline-block px-6 py-3 rounded-lg font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-stone transition";
-const variants = {
+const variants: Record<string, string> = {
   primary: "bg-accent text-white hover:bg-orange-800",
   secondary: "bg-stone text-white hover:bg-slate-700",
   outline: "border border-stone text-stone hover:bg-ice",
 };
-const classes = `${base} ${variants[variant] ?? variants.primary}`;
+const classes = `${base} ${variants[variant] ?? variants.primary} ${className}`;
+const computedRel =
+  rel ?? (target === "_blank" ? "noopener noreferrer" : undefined);
 ---
 
 {
   href ? (
-    <a href={href} class={classes}>
+    <a href={href} class={classes} target={target} rel={computedRel}>
       <slot />
     </a>
   ) : (
