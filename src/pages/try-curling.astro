@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+---
+
+<BaseLayout
+  title="Try Curling"
+  description="Never curled before? Discover the roaring game. Watch what a taster session looks like and find a Try Curling session near you across Scotland, September to March."
+>
+  <article class="prose max-w-3xl mx-auto px-4 py-12">
+    <h1>Looking to try something new? Curling might be for you!</h1>
+    <p>
+      You don't need any experience to give curling a go — just a sense of fun
+      and a pair of clean, flat-soled shoes. At a Try Curling session a
+      qualified coach walks you through the basics: how to slide out of the
+      hacks, deliver a stone, sweep, and play a friendly end or two. It's
+      sociable, gentle on the joints, and suitable for almost every age and
+      ability. Most people are surprised how quickly they're throwing stones
+      down the ice and laughing with their teammates.
+    </p>
+
+    <h2>See what a session looks like</h2>
+    <div
+      class="not-prose my-6 aspect-video overflow-hidden rounded-2xl shadow-sm"
+    >
+      <iframe
+        class="h-full w-full"
+        src="https://www.youtube.com/embed/NNrlDgR4YhU"
+        title="What to expect at a Try Curling session"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </div>
+
+    <h2>Find a session near you</h2>
+    <p>
+      Curling takes place at ice rinks all across Scotland from September to
+      March. To find a Try Curling session closest to you, head to
+      <a
+        href="https://www.trycurling.com"
+        target="_blank"
+        rel="noopener noreferrer">trycurling.com</a
+      > — it lists taster sessions the length and breadth of the country and lets
+      you book a spot online.
+    </p>
+
+    <div class="not-prose mt-8">
+      <Button
+        href="https://www.trycurling.com"
+        class="!text-white !no-underline"
+        target="_blank">Find a session at trycurling.com</Button
+      >
+    </div>
+  </article>
+</BaseLayout>
