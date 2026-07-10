@@ -1,6 +1,4 @@
 ---
-import { readdirSync, existsSync } from "node:fs";
-import { join } from "node:path";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Card from "../components/Card.astro";
 import club from "../data/club.json";
@@ -13,30 +11,7 @@ type Person = {
 };
 const officeBearers = club.committee.officeBearers as Person[];
 const members = club.committee.members as Person[];
-
-// Auto-discovery: any file in public/images/committee/ named after a committee
-// member's slug (e.g. "sarah-lean.jpg") is used as their photo automatically.
-const slug = (name: string) =>
-  name
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-
-const committeeDir = join(process.cwd(), "public", "images", "committee");
-const availablePhotos: Record<string, string> = {};
-if (existsSync(committeeDir)) {
-  for (const file of readdirSync(committeeDir)) {
-    const match = file.match(/^(.+)\.(jpe?g|png|webp|avif)$/i);
-    if (match) availablePhotos[match[1].toLowerCase()] = file;
-  }
-}
-const photoFor = (p: Person): string | null => {
-  if (p.photo) return p.photo;
-  const file = availablePhotos[slug(p.name)];
-  return file ? `/images/committee/${file}` : null;
-};
+const photoFor = (p: Person): string | null => p.photo ?? null;
 
 const initials = (name: string) =>
   name
