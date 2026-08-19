@@ -1839,14 +1839,16 @@ Positions taken from the club's 2021-22 fixture card (Skip / Third / Second / Le
 
 ## 2022-23 season (year 2023)
 
+Positions taken from the club's 2022-23 fixture card (Skip / Third / Second / Lead columns), cross-checked against the club's report of who took each trophy.
+
 ### The Paterson Trophy
 
-- **Winner:** David Haggart, Jonathan Buchanan, Andy Williamson, Joyce Cowie
-- **Runner-up (Mercer Rosebowl):** Sarah Lean, Gillian Haggart, Holly Burke, Jan Wilson
+- **Winner:** David Haggart (skip), Jonathan Buchanan (third), Andy Williamson (second), Joyce Cowie (lead)
+- **Runner-up (Mercer Rosebowl):** Sarah Lean (skip), Gillian Haggart (third), Holly Burke (second), Jan Wilson (lead)
 
 ### The Bob Wilson Knock-Out Cup
 
-- **Winner:** Sarah Lean, David Buchanan, Alison Turner, Joyce Cowie
+- **Winner:** Sarah Lean (skip), David Buchanan (third), Alison Turner (second — substitute for Lindsey Haggart), Joyce Cowie (lead)
 - **Runner-up:** Not supplied
 
 ### The McCall Salver
@@ -1856,8 +1858,8 @@ Positions taken from the club's 2021-22 fixture card (Skip / Third / Second / Le
 
 ### The Cleland Trophy
 
-- **Winner:** Iain Buchanan, Lindsey Haggart, Alison Turner, Joyce Cowie
-- **Runner-up (Clark Trophy):** Alan Turner, Holly Burke, Emily Haggart, Sarah Lean
+- **Winner:** Iain Buchanan (skip), Lindsey Haggart (third), Alison Turner (second), Joyce Cowie (lead)
+- **Runner-up (Clark Trophy):** Alan Turner (skip), Holly Burke (third), Emily Haggart (second), Sarah Lean (lead)
 
 ## 2023-24 season (year 2024)
 

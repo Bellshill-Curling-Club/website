@@ -259,12 +259,16 @@
         "year": 2023,
         "season": "2022-23",
         "winner": {
-          "players": ["David Haggart", "Jonathan Buchanan", "Andy Williamson", "Joyce Cowie"],
-          "positionsLabelled": false
+          "skip": "David Haggart",
+          "third": "Jonathan Buchanan",
+          "second": "Andy Williamson",
+          "lead": "Joyce Cowie"
         },
         "runnerUp": {
-          "players": ["Sarah Lean", "Gillian Haggart", "Holly Burke", "Jan Wilson"],
-          "positionsLabelled": false,
+          "skip": "Sarah Lean",
+          "third": "Gillian Haggart",
+          "second": "Holly Burke",
+          "lead": "Jan Wilson",
           "note": "Runners-up receive the Mercer Rosebowl"
         }
       },
@@ -549,8 +553,11 @@
         "year": 2023,
         "season": "2022-23",
         "winner": {
-          "players": ["Sarah Lean", "David Buchanan", "Alison Turner", "Joyce Cowie"],
-          "positionsLabelled": false
+          "skip": "Sarah Lean",
+          "third": "David Buchanan",
+          "second": "Alison Turner",
+          "lead": "Joyce Cowie",
+          "note": "Alison Turner substituted for Lindsey Haggart, who appeared as Second on the fixture card"
         },
         "runnerUp": null,
         "runnerUpNote": "Runner-up not supplied"
@@ -1025,12 +1032,16 @@
         "year": 2023,
         "season": "2022-23",
         "winner": {
-          "players": ["Iain Buchanan", "Lindsey Haggart", "Alison Turner", "Joyce Cowie"],
-          "positionsLabelled": false
+          "skip": "Iain Buchanan",
+          "third": "Lindsey Haggart",
+          "second": "Alison Turner",
+          "lead": "Joyce Cowie"
         },
         "runnerUp": {
-          "players": ["Alan Turner", "Holly Burke", "Emily Haggart", "Sarah Lean"],
-          "positionsLabelled": false,
+          "skip": "Alan Turner",
+          "third": "Holly Burke",
+          "second": "Emily Haggart",
+          "lead": "Sarah Lean",
           "note": "Runners-up receive the Clark Trophy"
         }
       },
