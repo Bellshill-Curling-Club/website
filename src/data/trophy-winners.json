@@ -1,5 +1,5 @@
 {
-  "sourceNote": "Reconstructed from archived snapshots of the historical club website (bellshillcurlingclub.com) via the Internet Archive Wayback Machine for seasons up to 2018-19, and from records supplied by the club for the 2019-20 season onwards. Only results confirmed by the source are shown. Where the source labels only lead and skip, the two middle names are shown in the order given by the source and marked below; no positions have been invented. From the 2021-22 season onwards the club's records list the four team members but do not label positions, so those rows show the players as reported without position assignments. An asterisk after a name (e.g. \"Stewart Carson*\") indicates a substitute or guest player, as annotated on the club's own prize list. Years with no reliable evidence are omitted.",
+  "sourceNote": "Reconstructed from archived snapshots of the historical club website (bellshillcurlingclub.com) via the Internet Archive Wayback Machine for seasons up to 2018-19, and from records supplied by the club for the 2019-20 season onwards. Only results confirmed by the source are shown. Where the source labels only lead and skip, the two middle names are shown in the order given by the source and marked below; no positions have been invented. From the 2021-22 season onwards the club's records list the four team members but do not always label positions, so those rows show the players as reported without position assignments. Where a player substituted into a team on the day of the final this is called out in a separate note on that row. Years with no reliable evidence are omitted.",
   "paterson": {
     "name": "The Paterson Trophy",
     "format": "Four-person team league",
@@ -242,12 +242,16 @@
         "year": 2022,
         "season": "2021-22",
         "winner": {
-          "players": ["David Haggart", "Iain Buchanan", "Lindsey Haggart", "Alison Turner"],
-          "positionsLabelled": false
+          "skip": "David Haggart",
+          "third": "Iain Buchanan",
+          "second": "Lindsey Haggart",
+          "lead": "Alison Turner"
         },
         "runnerUp": {
-          "players": ["David Buchanan", "Gillian Haggart", "Joyce Cowie", "Linzi Dodd*"],
-          "positionsLabelled": false,
+          "skip": "David Buchanan",
+          "third": "Gillian Haggart",
+          "second": "Joyce Cowie",
+          "lead": "Linzi Dodd",
           "note": "Runners-up receive the Mercer Rosebowl"
         }
       },
@@ -255,11 +259,11 @@
         "year": 2023,
         "season": "2022-23",
         "winner": {
-          "players": ["David Haggart", "Jonathan Buchanan", "Andy Williamson*", "Joyce Cowie"],
+          "players": ["David Haggart", "Jonathan Buchanan", "Andy Williamson", "Joyce Cowie"],
           "positionsLabelled": false
         },
         "runnerUp": {
-          "players": ["Sarah Lean", "Gillian Haggart", "Holly Burke", "Jan Wilson*"],
+          "players": ["Sarah Lean", "Gillian Haggart", "Holly Burke", "Jan Wilson"],
           "positionsLabelled": false,
           "note": "Runners-up receive the Mercer Rosebowl"
         }
@@ -268,12 +272,16 @@
         "year": 2024,
         "season": "2023-24",
         "winner": {
-          "players": ["David Haggart", "Iain Buchanan", "Emily Haggart", "Alison Turner"],
-          "positionsLabelled": false
+          "skip": "David Haggart",
+          "third": "Iain Buchanan",
+          "second": "Emily Haggart",
+          "lead": "Alison Turner"
         },
         "runnerUp": {
-          "players": ["David Buchanan", "Gillian Haggart", "Jennifer Ward", "Erin Roche"],
-          "positionsLabelled": false,
+          "skip": "David Buchanan",
+          "third": "Gillian Haggart",
+          "second": "Jennifer Ward",
+          "lead": "Erin Roche",
           "note": "Runners-up receive the Mercer Rosebowl"
         }
       },
@@ -281,12 +289,16 @@
         "year": 2025,
         "season": "2024-25",
         "winner": {
-          "players": ["Jan Wilson", "Jonathan Buchanan", "Lindsey Haggart", "Erin Roche"],
-          "positionsLabelled": false
+          "skip": "Jonathan Buchanan",
+          "third": "Lindsey Haggart",
+          "second": "Erin Roche",
+          "lead": "Jan Wilson"
         },
         "runnerUp": {
-          "players": ["Iain Buchanan", "David Buchanan", "Jennifer Ward", "Emily Ward"],
-          "positionsLabelled": false,
+          "skip": "Iain Buchanan",
+          "third": "David Buchanan",
+          "second": "Jennifer Ward",
+          "lead": "Emily Ward",
           "note": "Runners-up receive the Mercer Rosebowl"
         }
       },
@@ -524,8 +536,11 @@
         "year": 2022,
         "season": "2021-22",
         "winner": {
-          "players": ["Alan Turner", "Iain Buchanan", "Lindsey Haggart", "Stewart Carson*"],
-          "positionsLabelled": false
+          "skip": "Alan Turner",
+          "third": "Iain Buchanan",
+          "second": "Lindsey Haggart",
+          "lead": "Stewart Carson",
+          "note": "Iain Buchanan substituted for David Haggart (Third on the fixture card); Stewart Carson substituted for Joyce Cowie (Lead on the fixture card)"
         },
         "runnerUp": null,
         "runnerUpNote": "Runner-up not supplied"
@@ -544,8 +559,11 @@
         "year": 2024,
         "season": "2023-24",
         "winner": {
-          "players": ["Gillian Haggart", "David Haggart", "Emily Haggart", "Sophie Martin*"],
-          "positionsLabelled": false
+          "skip": "Gillian Haggart",
+          "third": "David Haggart",
+          "second": "Emily Haggart",
+          "lead": "Sophie Martin",
+          "note": "David Haggart substituted for Andy Williamson (Third on the fixture card) and Sophie Martin substituted for Alison Turner (Lead on the fixture card)"
         },
         "runnerUp": null,
         "runnerUpNote": "Runner-up not supplied"
@@ -554,12 +572,17 @@
         "year": 2025,
         "season": "2024-25",
         "winner": {
-          "players": ["Emily Ward", "Emily Haggart", "Michael Barr", "David Buchanan"],
-          "positionsLabelled": false
+          "skip": "David Buchanan",
+          "third": "Michael Barr",
+          "second": "Emily Haggart",
+          "lead": "Emily Ward",
+          "note": "Michael Barr substituted for David Haggart, who appeared as Third on the fixture card"
         },
         "runnerUp": {
-          "players": ["John Wilson", "Alan Turner", "Jan Wilson", "Stewart Turner"],
-          "positionsLabelled": false
+          "skip": "John Wilson",
+          "third": "Alan Turner",
+          "second": "Stewart Turner",
+          "lead": "Jan Wilson"
         }
       },
       {
@@ -729,17 +752,19 @@
         "year": 2022,
         "season": "2021-22",
         "winner": {
-          "players": ["Holly Burke", "Michael Barr*"]
+          "players": ["Holly Burke", "Michael Barr"],
+          "note": "Michael Barr substituted for Iain Buchanan, who was Holly Burke's partner on the fixture card"
         },
         "runnerUp": {
-          "players": ["Alison Bell*", "Stewart Carson*"]
+          "players": ["Alison Bell", "Stewart Carson"],
+          "note": "Alison Bell substituted for Gillian Haggart, who was Stewart Carson's partner on the fixture card"
         }
       },
       {
         "year": 2023,
         "season": "2022-23",
         "winner": {
-          "players": ["Jonathan Buchanan", "Stewart Carson*"]
+          "players": ["Jonathan Buchanan", "Stewart Carson"]
         },
         "runnerUp": {
           "players": ["Holly Burke", "Alan Turner"]
@@ -983,12 +1008,16 @@
         "year": 2022,
         "season": "2021-22",
         "winner": {
-          "players": ["Sarah Lean", "Holly Burke", "Ellie Campbell*", "Alan Turner"],
-          "positionsLabelled": false
+          "skip": "Sarah Lean",
+          "third": "Holly Burke",
+          "second": "Ellie Campbell",
+          "lead": "Alan Turner"
         },
         "runnerUp": {
-          "players": ["Alison Bell*", "Joyce Cowie", "Alison Turner", "David Buchanan"],
-          "positionsLabelled": false,
+          "skip": "Alison Bell",
+          "third": "Joyce Cowie",
+          "second": "Alison Turner",
+          "lead": "David Buchanan",
           "note": "Runners-up receive the Clark Trophy"
         }
       },
@@ -1009,12 +1038,17 @@
         "year": 2024,
         "season": "2023-24",
         "winner": {
-          "players": ["Charlie Murray*", "Lindsey Haggart", "Alison Turner", "Alan Turner"],
-          "positionsLabelled": false
+          "skip": "Charlie Murray",
+          "third": "Lindsey Haggart",
+          "second": "Alison Turner",
+          "lead": "Alan Turner",
+          "note": "Charlie Murray substituted for Andy Williamson (Skip on the fixture card)"
         },
         "runnerUp": {
-          "players": ["Alison Bell", "Joyce Cowie", "Sophie Martin*", "Iain Buchanan"],
-          "positionsLabelled": false,
+          "skip": "Alison Bell",
+          "third": "Joyce Cowie",
+          "second": "Sophie Martin",
+          "lead": "Iain Buchanan",
           "note": "Runners-up receive the Clark Trophy"
         }
       },
@@ -1022,12 +1056,16 @@
         "year": 2025,
         "season": "2024-25",
         "winner": {
-          "players": ["Sarah Lean", "Jennifer Ward", "Alan Turner", "Erin Roche"],
-          "positionsLabelled": false
+          "skip": "Alan Turner",
+          "third": "Jennifer Ward",
+          "second": "Erin Roche",
+          "lead": "Sarah Lean"
         },
         "runnerUp": {
-          "players": ["Gillian Haggart", "Joyce Cowie", "Sophie Martin", "Iain Buchanan"],
-          "positionsLabelled": false,
+          "skip": "Gillian Haggart",
+          "third": "Joyce Cowie",
+          "second": "Sophie Martin",
+          "lead": "Iain Buchanan",
           "note": "Runners-up receive the Clark Trophy"
         }
       },

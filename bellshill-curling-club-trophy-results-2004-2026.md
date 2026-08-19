@@ -1810,37 +1810,39 @@ Consolidated list of archived pages actually consulted during this research.
 The core research above was limited to 2004-2021 and to evidence from the Wayback Machine. In August 2026 the club supplied the following results for the four seasons after the archived record ends. These results are recorded here for completeness. Unlike the 2004-2019 rows above:
 
 - The club's prize list gives the four team members but does **not** label positions, so no Skip/Third/Second/Lead assignments have been made for these years.
-- An asterisk after a player name (e.g. **Stewart Carson\***) indicates a substitute or guest player.
+- Where a player substituted into a team on the day of the final, that is called out separately in the row.
 - 2020-21 (curling season 2020-21) is still not covered — Scottish curling was largely suspended during that season due to COVID-19 restrictions.
 
 ## 2021-22 season (year 2022)
 
+Positions taken from the club's 2021-22 fixture card (Skip / Third / Second / Lead columns), cross-checked against the club's report of who took each trophy.
+
 ### The Paterson Trophy
 
-- **Winner:** David Haggart, Iain Buchanan, Lindsey Haggart, Alison Turner
-- **Runner-up (Mercer Rosebowl):** David Buchanan, Gillian Haggart, Joyce Cowie, Linzi Dodd\*
+- **Winner:** David Haggart (skip), Iain Buchanan (third), Lindsey Haggart (second), Alison Turner (lead)
+- **Runner-up (Mercer Rosebowl):** David Buchanan (skip), Gillian Haggart (third), Joyce Cowie (second), Linzi Dodd (lead)
 
 ### The Bob Wilson Knock-Out Cup
 
-- **Winner:** Alan Turner, Iain Buchanan, Lindsey Haggart, Stewart Carson\*
+- **Winner:** Alan Turner (skip), Iain Buchanan (third — substitute for David Haggart), Lindsey Haggart (second), Stewart Carson (lead — substitute for Joyce Cowie)
 - **Runner-up:** Not supplied
 
 ### The McCall Salver
 
-- **Winner:** Holly Burke & Michael Barr\*
-- **Runner-up:** Alison Bell\* & Stewart Carson\*
+- **Winner:** Holly Burke & Michael Barr (Michael Barr substituted for Iain Buchanan, Holly Burke's partner on the fixture card)
+- **Runner-up:** Alison Bell & Stewart Carson (Alison Bell substituted for Gillian Haggart, Stewart Carson's partner on the fixture card)
 
 ### The Cleland Trophy
 
-- **Winner:** Sarah Lean, Holly Burke, Ellie Campbell\*, Alan Turner
-- **Runner-up (Clark Trophy):** Alison Bell\*, Joyce Cowie, Alison Turner, David Buchanan
+- **Winner:** Sarah Lean (skip), Holly Burke (third), Ellie Campbell (second), Alan Turner (lead)
+- **Runner-up (Clark Trophy):** Alison Bell (skip), Joyce Cowie (third), Alison Turner (second), David Buchanan (lead)
 
 ## 2022-23 season (year 2023)
 
 ### The Paterson Trophy
 
-- **Winner:** David Haggart, Jonathan Buchanan, Andy Williamson\*, Joyce Cowie
-- **Runner-up (Mercer Rosebowl):** Sarah Lean, Gillian Haggart, Holly Burke, Jan Wilson\*
+- **Winner:** David Haggart, Jonathan Buchanan, Andy Williamson, Joyce Cowie
+- **Runner-up (Mercer Rosebowl):** Sarah Lean, Gillian Haggart, Holly Burke, Jan Wilson
 
 ### The Bob Wilson Knock-Out Cup
 
@@ -1849,7 +1851,7 @@ The core research above was limited to 2004-2021 and to evidence from the Waybac
 
 ### The McCall Salver
 
-- **Winner:** Jonathan Buchanan & Stewart Carson\*
+- **Winner:** Jonathan Buchanan & Stewart Carson
 - **Runner-up:** Holly Burke & Alan Turner
 
 ### The Cleland Trophy
@@ -1859,14 +1861,16 @@ The core research above was limited to 2004-2021 and to evidence from the Waybac
 
 ## 2023-24 season (year 2024)
 
+Positions taken from the club's 2023-24 fixture card (Skip / Third / Second / Lead columns), cross-checked against the club's report of who took each trophy.
+
 ### The Paterson Trophy
 
-- **Winner:** David Haggart, Iain Buchanan, Emily Haggart, Alison Turner
-- **Runner-up (Mercer Rosebowl):** David Buchanan, Gillian Haggart, Jennifer Ward, Erin Roche
+- **Winner:** David Haggart (skip), Iain Buchanan (third), Emily Haggart (second), Alison Turner (lead)
+- **Runner-up (Mercer Rosebowl):** David Buchanan (skip), Gillian Haggart (third), Jennifer Ward (second), Erin Roche (lead)
 
 ### The Bob Wilson Knock-Out Cup
 
-- **Winner:** Gillian Haggart, David Haggart, Emily Haggart, Sophie Martin\*
+- **Winner:** Gillian Haggart (skip), David Haggart (third — substitute for Andy Williamson), Emily Haggart (second), Sophie Martin (lead — substitute for Alison Turner)
 - **Runner-up:** Not supplied
 
 ### The McCall Salver
@@ -1876,20 +1880,22 @@ The core research above was limited to 2004-2021 and to evidence from the Waybac
 
 ### The Cleland Trophy
 
-- **Winner:** Charlie Murray\*, Lindsey Haggart, Alison Turner, Alan Turner
-- **Runner-up (Clark Trophy):** Alison Bell, Joyce Cowie, Sophie Martin\*, Iain Buchanan
+- **Winner:** Charlie Murray (skip — substitute for Andy Williamson), Lindsey Haggart (third), Alison Turner (second), Alan Turner (lead)
+- **Runner-up (Clark Trophy):** Alison Bell (skip), Joyce Cowie (third), Sophie Martin (second), Iain Buchanan (lead)
 
 ## 2024-25 season (year 2025)
 
+Positions taken from the club's 2024-25 fixture card (Skip / Third / Second / Lead columns), cross-checked against the club's report of who took each trophy.
+
 ### The Paterson Trophy
 
-- **Winner:** Jan Wilson, Jonathan Buchanan, Lindsey Haggart, Erin Roche
-- **Runner-up (Mercer Rosebowl):** Iain Buchanan, David Buchanan, Jennifer Ward, Emily Ward
+- **Winner:** Jonathan Buchanan (skip), Lindsey Haggart (third), Erin Roche (second), Jan Wilson (lead)
+- **Runner-up (Mercer Rosebowl):** Iain Buchanan (skip), David Buchanan (third), Jennifer Ward (second), Emily Ward (lead)
 
 ### The Bob Wilson Knock-Out Cup
 
-- **Winner:** Emily Ward, Emily Haggart, Michael Barr, David Buchanan
-- **Runner-up:** John Wilson, Alan Turner, Jan Wilson, Stewart Turner
+- **Winner:** David Buchanan (skip), Michael Barr (third — substitute for David Haggart, who appeared as Third on the fixture card), Emily Haggart (second), Emily Ward (lead)
+- **Runner-up:** John Wilson (skip), Alan Turner (third), Stewart Turner (second), Jan Wilson (lead)
 
 ### The McCall Salver
 
@@ -1898,8 +1904,8 @@ The core research above was limited to 2004-2021 and to evidence from the Waybac
 
 ### The Cleland Trophy
 
-- **Winner:** Sarah Lean, Jennifer Ward, Alan Turner, Erin Roche
-- **Runner-up (Clark Trophy):** Gillian Haggart, Joyce Cowie, Sophie Martin, Iain Buchanan
+- **Winner:** Alan Turner (skip), Jennifer Ward (third), Erin Roche (second), Sarah Lean (lead)
+- **Runner-up (Clark Trophy):** Gillian Haggart (skip), Joyce Cowie (third), Sophie Martin (second), Iain Buchanan (lead)
 
 ## Other competitions mentioned in the club's 2021-2025 records
 
@@ -1917,17 +1923,21 @@ The August 2026 club update also referenced the Cleland Trophy result "Sarah Lea
 Positions supplied by the club with the results.
 
 ### The Paterson Trophy
+
 - **Winner:** Jonathan Buchanan (skip), Erin Roche (third), Stewart Carson (second), Matthew Gray (lead)
 - **Runner-up (Mercer Rosebowl):** David Haggart (skip), David Buchanan (third), Emily Haggart (second), Stewart Turner (lead)
 
 ### The Bob Wilson Knock-Out Cup
+
 - **Winner:** Iain Buchanan (skip), David Haggart (third), Emily Ward (second), Lindsey Haggart (lead)
 - **Runner-up:** Not supplied
 
 ### The McCall Salver
+
 - **Winner:** Iain Buchanan & Joyce Cowie
 - **Runner-up:** Jonathan Buchanan & David Buchanan
 
 ### The Cleland Trophy
+
 - **Winner:** Gillian Haggart (skip), Emily Haggart (third), Stewart Turner (second), Iain Buchanan (lead)
 - **Runner-up (Clark Trophy):** Alan Turner (skip), Erin Roche (third), Callum Joplin (second), John Wilson (lead)
