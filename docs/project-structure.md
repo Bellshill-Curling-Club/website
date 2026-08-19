@@ -9,7 +9,7 @@
 ├─ public/                   # static assets served as-is (favicon, images)
 ├─ src/
 │  ├─ components/            # Reusable UI (Header, Footer, Card, Button)
-│  ├─ data/                  # club.json, fixtures.json, scores.json, competitions.json
+│  ├─ data/                  # club.json, fixtures.json, scores.json, competitions.json, trophy-winners.json
 │  ├─ layouts/               # BaseLayout.astro
 │  ├─ pages/                 # Each .astro file becomes a route
 │  └─ styles/                # global.css (Tailwind entry)

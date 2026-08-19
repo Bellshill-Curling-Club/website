@@ -1,0 +1,276 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import trophies from "../data/trophy-winners.json";
+
+type Team = {
+  skip?: string;
+  third?: string | null;
+  second?: string | null;
+  lead?: string | null;
+  middle?: string[];
+  team?: string[];
+  players?: string[];
+  positionsLabelled?: boolean;
+  note?: string;
+};
+
+type Result = {
+  year: number;
+  season: string;
+  winner: Team | null;
+  runnerUp: Team | null;
+  runnerUpNote?: string;
+  resultNote?: string;
+};
+
+type Trophy = {
+  name: string;
+  format: string;
+  type: "team" | "pairs";
+  results: Result[];
+};
+
+const trophyOrder: Array<{ slug: string; data: Trophy }> = [
+  { slug: "paterson", data: trophies.paterson as Trophy },
+  { slug: "wilson", data: trophies.wilson as Trophy },
+  { slug: "mccall", data: trophies.mccall as Trophy },
+  { slug: "cleland", data: trophies.cleland as Trophy },
+];
+
+const teamPlayers = (t: Team): string[] => {
+  if (t.players) return t.players;
+  if (t.team) return t.team;
+  const parts: string[] = [];
+  if (t.lead) parts.push(t.lead);
+  if (t.middle) parts.push(...t.middle);
+  if (t.third) parts.push(t.third);
+  if (t.second) parts.push(t.second);
+  return parts;
+};
+
+const positionsFor = (t: Team): { label: string; name: string }[] | null => {
+  if (t.players) return null;
+  const rows: { label: string; name: string }[] = [];
+  if (t.skip) rows.push({ label: "Skip", name: t.skip });
+  if (t.third) rows.push({ label: "Third", name: t.third });
+  if (t.second) rows.push({ label: "Second", name: t.second });
+  if (t.lead) rows.push({ label: "Lead", name: t.lead });
+  return rows.length ? rows : null;
+};
+---
+
+<BaseLayout
+  title="Past Winners"
+  description="Winners and runners-up of Bellshill Curling Club's four internal trophies (Paterson Trophy, Bob Wilson Knock-Out Cup, McCall Salver and Cleland Trophy) from 2004 onwards."
+>
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-bold text-stone mb-2">Past Winners</h1>
+    <p class="text-slate-600 mb-4 max-w-3xl">
+      Historic winners and runners-up of the club's four internal competitions:
+      the <strong>Paterson Trophy</strong>, the
+      <strong>Bob Wilson Knock-Out Cup</strong>, the
+      <strong>McCall Salver</strong> and the <strong>Cleland Trophy</strong>.
+    </p>
+    <p class="text-slate-500 text-sm mb-8 max-w-3xl">
+      Results have been reconstructed from online snapshots and some information
+      is missing. If you can fill in a gap or correct a detail, please
+      <a class="underline hover:text-accent" href="/contact/">get in touch</a>.
+    </p>
+
+    <nav aria-label="Jump to trophy" class="mb-10">
+      <ul class="flex flex-wrap gap-2 text-sm">
+        {
+          trophyOrder.map(({ slug, data }) => (
+            <li>
+              <a
+                href={`#${slug}`}
+                class="inline-block px-3 py-1.5 rounded border border-slate-200 hover:border-stone hover:bg-slate-50"
+              >
+                {data.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    {
+      trophyOrder.map(({ slug, data }) => (
+        <section id={slug} class="mb-14 scroll-mt-24">
+          <header class="mb-4">
+            <h2 class="text-2xl font-bold text-stone">{data.name}</h2>
+            <p class="text-sm uppercase tracking-wide text-slate-500">
+              {data.format}
+            </p>
+          </header>
+
+          <div class="overflow-x-auto bg-white border border-slate-200 rounded-lg">
+            <table class="w-full text-sm">
+              <thead class="bg-slate-50 border-b border-slate-200">
+                <tr>
+                  <th
+                    scope="col"
+                    class="text-left px-4 py-3 font-semibold text-stone whitespace-nowrap"
+                  >
+                    Season
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-left px-4 py-3 font-semibold text-stone"
+                  >
+                    {data.type === "pairs" ? "Winners" : "Winner"}
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-left px-4 py-3 font-semibold text-stone"
+                  >
+                    {data.type === "pairs" ? "Runners-up" : "Runner-up"}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {[...data.results]
+                  .sort((a, b) => b.year - a.year)
+                  .map((r) => {
+                    const winnerPlayers = r.winner ? teamPlayers(r.winner) : [];
+                    const runnerPlayers = r.runnerUp
+                      ? teamPlayers(r.runnerUp)
+                      : [];
+                    const winnerPositions = r.winner
+                      ? positionsFor(r.winner)
+                      : null;
+                    const runnerPositions = r.runnerUp
+                      ? positionsFor(r.runnerUp)
+                      : null;
+                    return (
+                      <tr class="border-b border-slate-100 last:border-0 align-top">
+                        <th
+                          scope="row"
+                          class="px-4 py-3 font-semibold text-stone whitespace-nowrap"
+                        >
+                          <span class="block">{r.season}</span>
+                          <span class="text-xs font-normal text-slate-500">
+                            Awarded {r.year}
+                          </span>
+                        </th>
+
+                        <td class="px-4 py-3">
+                          {r.winner ? (
+                            <div>
+                              {data.type === "team" && r.winner.skip && (
+                                <div class="font-semibold text-stone mb-1">
+                                  {r.winner.skip}
+                                  <span class="font-normal text-slate-500">
+                                    {" "}
+                                    (skip)
+                                  </span>
+                                </div>
+                              )}
+                              {winnerPositions && winnerPositions.length > 1 ? (
+                                <dl class="grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-sm">
+                                  {winnerPositions
+                                    .filter((p) => p.label !== "Skip")
+                                    .map((p) => (
+                                      <>
+                                        <dt class="text-slate-500">
+                                          {p.label}
+                                        </dt>
+                                        <dd>{p.name}</dd>
+                                      </>
+                                    ))}
+                                </dl>
+                              ) : (
+                                winnerPlayers.length > 0 && (
+                                  <ul class="text-sm text-slate-700 space-y-0.5">
+                                    {winnerPlayers.map((p) => (
+                                      <li>{p}</li>
+                                    ))}
+                                  </ul>
+                                )
+                              )}
+                              {r.winner.note && (
+                                <p class="text-xs text-slate-500 italic mt-1">
+                                  {r.winner.note}
+                                </p>
+                              )}
+                              {r.resultNote && (
+                                <p class="text-xs text-slate-500 italic mt-1">
+                                  {r.resultNote}
+                                </p>
+                              )}
+                            </div>
+                          ) : (
+                            <span class="text-slate-400 italic">
+                              Not recorded
+                            </span>
+                          )}
+                        </td>
+
+                        <td class="px-4 py-3">
+                          {r.runnerUp ? (
+                            <div>
+                              {data.type === "team" && r.runnerUp.skip && (
+                                <div class="font-semibold text-stone mb-1">
+                                  {r.runnerUp.skip}
+                                  <span class="font-normal text-slate-500">
+                                    {" "}
+                                    (skip)
+                                  </span>
+                                </div>
+                              )}
+                              {runnerPositions && runnerPositions.length > 1 ? (
+                                <dl class="grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-sm">
+                                  {runnerPositions
+                                    .filter((p) => p.label !== "Skip")
+                                    .map((p) => (
+                                      <>
+                                        <dt class="text-slate-500">
+                                          {p.label}
+                                        </dt>
+                                        <dd>{p.name}</dd>
+                                      </>
+                                    ))}
+                                </dl>
+                              ) : (
+                                runnerPlayers.length > 0 && (
+                                  <ul class="text-sm text-slate-700 space-y-0.5">
+                                    {runnerPlayers.map((p) => (
+                                      <li>{p}</li>
+                                    ))}
+                                  </ul>
+                                )
+                              )}
+                              {r.runnerUp.note && (
+                                <p class="text-xs text-slate-500 italic mt-1">
+                                  {r.runnerUp.note}
+                                </p>
+                              )}
+                            </div>
+                          ) : (
+                            <span class="text-slate-400 italic">
+                              {r.runnerUpNote ?? "Not recorded"}
+                            </span>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ))
+    }
+
+    <aside
+      class="text-xs text-slate-500 border-t border-slate-200 pt-6 max-w-3xl"
+    >
+      <p>
+        <strong>A note on positions.</strong> Where the historical source records
+        only the lead and the skip (as most club news reports of the day did), the
+        two middle team members are listed by name in the order the source gave them,
+        without positions attached. No positions have been guessed.
+      </p>
+    </aside>
+  </section>
+</BaseLayout>

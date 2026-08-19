@@ -13,11 +13,9 @@
       { "role": "Vice President", "name": "Vacant", "photo": null },
       { "role": "Secretary", "name": "Gillian Haggart", "photo": null },
       { "role": "Treasurer", "name": "Joyce Cowie", "photo": null },
-      { "role": "Match Secretary (Ex Officio)", "name": "David Haggart", "photo": null },
-      { "role": "Covid-19 Officer", "name": "Gillian Haggart", "photo": null }
+      { "role": "Match Secretary", "name": "David Buchanan", "photo": null }
     ],
     "members": [
-      { "name": "Alison Bell", "note": "Immediate Past President", "photo": null },
       { "name": "David Buchanan", "photo": null },
       { "name": "Jonathan Buchanan", "photo": null },
       { "name": "Jan Wilson", "photo": null }

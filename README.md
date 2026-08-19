@@ -22,6 +22,7 @@ All maintainer documentation lives in [`docs/`](docs/). Pick the topic you need:
 - **[Editing the website content](docs/editing-content.md)** — overview, the start-of-season checklist, and a "where to find each thing" table.
 - **[Updating fixtures](docs/fixtures.md)** — how to edit `src/data/fixtures.json` for rinks, reserves and match dates.
 - **[Updating scores & competition tables](docs/scores.md)** — how to edit `src/data/scores.json` and `src/data/competitions.json` (round-robin, knockout, singles).
+- **[Updating the Past Winners page](docs/past-winners.md)** — how to add each new season's trophy winners to `src/data/trophy-winners.json`.
 - **[Club details, history, new pages, images & contact form](docs/club-details.md)** — everything else you might want to change.
 
 ### For developers / repo owners

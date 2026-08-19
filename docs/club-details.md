@@ -92,6 +92,12 @@ placeholder.
 
 Edit `src/pages/history.astro` — change the text between the headings.
 
+## Edit the Past Winners page
+
+The Past Winners page (`/past-winners/`) is data-driven — you don't edit the
+page markup itself, you edit `src/data/trophy-winners.json`. See the dedicated
+guide: [Updating the Past Winners page](past-winners.md).
+
 ## Edit the Constitution page
 
 Edit `src/pages/constitution.astro` — the constitution, bye-laws and etiquette

@@ -1,0 +1,1102 @@
+{
+  "sourceNote": "Reconstructed from archived snapshots of the historical club website (bellshillcurlingclub.com) via the Internet Archive Wayback Machine for seasons up to 2018-19, and from records supplied by the club for the 2019-20 season onwards. Only results confirmed by the source are shown. Where the source labels only lead and skip, the two middle names are shown in the order given by the source and marked below; no positions have been invented. From the 2021-22 season onwards the club's records list the four team members but do not always label positions, so those rows show the players as reported without position assignments. Where a player substituted into a team on the day of the final this is called out in a separate note on that row. Years with no reliable evidence are omitted.",
+  "paterson": {
+    "name": "The Paterson Trophy",
+    "format": "Four-person team league",
+    "type": "team",
+    "results": [
+      {
+        "year": 2004,
+        "season": "2003-04",
+        "winner": {
+          "skip": "Gillian Cleland",
+          "team": ["David Haggart", "Alison Turner", "Alan Turner"],
+          "positionsLabelled": false
+        },
+        "runnerUp": {
+          "skip": "Iain Paterson",
+          "team": [],
+          "note": "Other members of the runner-up team not recorded in the archived source"
+        }
+      },
+      {
+        "year": 2006,
+        "season": "2005-06",
+        "winner": {
+          "skip": "Andy Williamson",
+          "team": ["John Smillie", "Carole Marsh", "Fiona Hetherington"],
+          "positionsLabelled": false
+        },
+        "runnerUp": {
+          "skip": "Iain Buchanan",
+          "team": ["Bill Downie", "Alan Turner", "William Alexander"],
+          "positionsLabelled": false
+        }
+      },
+      {
+        "year": 2007,
+        "season": "2006-07",
+        "winner": {
+          "skip": "David Haggart",
+          "third": null,
+          "second": null,
+          "lead": "Fiona Johnstone",
+          "middle": ["Alasdair Fergus", "Peter Cleland"]
+        },
+        "runnerUp": {
+          "skip": "Andy Williamson",
+          "third": null,
+          "second": null,
+          "lead": "Lorraine McCoull",
+          "middle": ["Moira Gartshore", "Carole Marsh"]
+        }
+      },
+      {
+        "year": 2008,
+        "season": "2007-08",
+        "winner": {
+          "skip": "Andy Williamson",
+          "lead": "Joyce Cowie",
+          "middle": ["Alan Turner", "Peter Cleland"]
+        },
+        "runnerUp": {
+          "skip": "Douglas Wright",
+          "lead": "Alison Turner",
+          "middle": ["Alan Murdoch", "John Smillie"]
+        }
+      },
+      {
+        "year": 2009,
+        "season": "2008-09",
+        "winner": {
+          "skip": "John Smillie",
+          "lead": "Alison Turner",
+          "middle": ["Alan Turner", "Jim McCoull"]
+        },
+        "runnerUp": {
+          "skip": "David Haggart",
+          "lead": "Andy Muir",
+          "middle": ["John Adkin", "Peter Cleland"]
+        }
+      },
+      {
+        "year": 2010,
+        "season": "2009-10",
+        "winner": {
+          "skip": "Iain Buchanan",
+          "lead": "Catriona Fergus",
+          "middle": ["Davie Armstrong", "Gillian Haggart"]
+        },
+        "runnerUp": {
+          "skip": "Sarah Lean",
+          "lead": "Richard Wilson",
+          "middle": ["Philip Johnston", "Anne Hood"]
+        }
+      },
+      {
+        "year": 2011,
+        "season": "2010-11",
+        "winner": {
+          "skip": "Andy Williamson",
+          "lead": "Ian Lean",
+          "middle": ["Kay Hamilton", "John Adkin"]
+        },
+        "runnerUp": {
+          "skip": "Jim McCoull",
+          "lead": "Joyce Cowie",
+          "middle": ["Alan Turner"],
+          "note": "Source names only three players for the runner-up team"
+        }
+      },
+      {
+        "year": 2012,
+        "season": "2011-12",
+        "winner": {
+          "skip": "John Smillie",
+          "lead": "Elizabeth Rough",
+          "middle": ["Phil Biggerstaff", "David Haggart"]
+        },
+        "runnerUp": {
+          "skip": "Jim McCoull",
+          "lead": "Ian Lean",
+          "middle": ["Kay Hamilton", "Iain Buchanan"]
+        }
+      },
+      {
+        "year": 2013,
+        "season": "2012-13",
+        "winner": {
+          "skip": "Gillian Haggart",
+          "lead": "Andy Muir",
+          "middle": ["Joyce Cowie", "Anne Hood"]
+        },
+        "runnerUp": {
+          "skip": "Jim McCoull",
+          "lead": "Davie Armstrong",
+          "middle": ["Alison Turner", "John Adkin"]
+        }
+      },
+      {
+        "year": 2014,
+        "season": "2013-14",
+        "winner": {
+          "skip": "Anne Hood",
+          "lead": "Peter Cleland",
+          "middle": ["Alison Bell", "Iain Buchanan"]
+        },
+        "runnerUp": {
+          "skip": "Alan Turner",
+          "lead": "Anne Millar",
+          "middle": ["Alison Turner", "David Haggart"]
+        }
+      },
+      {
+        "year": 2015,
+        "season": "2014-15",
+        "winner": {
+          "skip": "Andy Williamson",
+          "lead": "Jan Wilson",
+          "middle": ["Phil Biggerstaff"],
+          "note": "Source describes the team as \"Jim McCoull's team\" but names only three players and labels Andy Williamson as skip; the fourth player is unresolved"
+        },
+        "runnerUp": {
+          "skip": "David Haggart",
+          "lead": "David Armstrong",
+          "middle": ["Alison Turner", "John Adkin"]
+        }
+      },
+      {
+        "year": 2016,
+        "season": "2015-16",
+        "winner": {
+          "skip": "Iain Buchanan",
+          "lead": "David McLeod",
+          "middle": ["Jay Wilson", "Gillian Haggart"]
+        },
+        "runnerUp": {
+          "skip": "David Haggart",
+          "team": ["Davie Armstrong", "Alison Turner", "Andy Muir"],
+          "positionsLabelled": false,
+          "note": "Source does not label positions for the runner-up team"
+        }
+      },
+      {
+        "year": 2017,
+        "season": "2016-17",
+        "winner": {
+          "skip": "Andy Williamson",
+          "lead": "Davie Armstrong",
+          "middle": ["Alison Bell", "Jay Wilson"]
+        },
+        "runnerUp": {
+          "skip": "David Haggart",
+          "team": ["Jan Wilson", "Alan Murdoch", "John Wilson"],
+          "positionsLabelled": false,
+          "note": "Source labels only the runner-up skip"
+        }
+      },
+      {
+        "year": 2018,
+        "season": "2017-18",
+        "winner": {
+          "skip": "Andy Williamson",
+          "lead": "Ian Lean",
+          "middle": ["David Buchanan", "John Wilson"]
+        },
+        "runnerUp": null,
+        "runnerUpNote": "Two teams (skipped by Sarah Lean and Jay Wilson) tied on wins and needed a count-back which was never posted online"
+      },
+      {
+        "year": 2019,
+        "season": "2018-19",
+        "winner": {
+          "skip": "John Wilson",
+          "lead": "Jonathan Buchanan",
+          "middle": ["Fiona Hetherington", "David Buchanan"]
+        },
+        "runnerUp": {
+          "skip": "Andy Williamson",
+          "lead": "Tom Haynes",
+          "middle": ["Alan Turner", "Iain Buchanan"]
+        }
+      },
+      {
+        "year": 2020,
+        "season": "2019-20",
+        "winner": {
+          "skip": "John Wilson",
+          "third": "Sarah Lean",
+          "second": "Jonathan Buchanan",
+          "lead": "Holly Burke"
+        },
+        "runnerUp": {
+          "skip": "Jay Wilson",
+          "third": "Iain Buchanan",
+          "second": "Gillian Haggart",
+          "lead": "Joyce Cowie",
+          "note": "Finished level on points with the winner but well behind on shot difference"
+        },
+        "resultNote": "Season interrupted by the COVID-19 pandemic in March 2020; final standings determined by the club and shared subsequently"
+      },
+      {
+        "year": 2022,
+        "season": "2021-22",
+        "winner": {
+          "skip": "David Haggart",
+          "third": "Iain Buchanan",
+          "second": "Lindsey Haggart",
+          "lead": "Alison Turner"
+        },
+        "runnerUp": {
+          "skip": "David Buchanan",
+          "third": "Gillian Haggart",
+          "second": "Joyce Cowie",
+          "lead": "Linzi Dodd",
+          "note": "Runners-up receive the Mercer Rosebowl"
+        }
+      },
+      {
+        "year": 2023,
+        "season": "2022-23",
+        "winner": {
+          "skip": "David Haggart",
+          "third": "Jonathan Buchanan",
+          "second": "Andy Williamson",
+          "lead": "Joyce Cowie"
+        },
+        "runnerUp": {
+          "skip": "Sarah Lean",
+          "third": "Gillian Haggart",
+          "second": "Holly Burke",
+          "lead": "Jan Wilson",
+          "note": "Runners-up receive the Mercer Rosebowl"
+        }
+      },
+      {
+        "year": 2024,
+        "season": "2023-24",
+        "winner": {
+          "skip": "David Haggart",
+          "third": "Iain Buchanan",
+          "second": "Emily Haggart",
+          "lead": "Alison Turner"
+        },
+        "runnerUp": {
+          "skip": "David Buchanan",
+          "third": "Gillian Haggart",
+          "second": "Jennifer Ward",
+          "lead": "Erin Roche",
+          "note": "Runners-up receive the Mercer Rosebowl"
+        }
+      },
+      {
+        "year": 2025,
+        "season": "2024-25",
+        "winner": {
+          "skip": "Jonathan Buchanan",
+          "third": "Lindsey Haggart",
+          "second": "Erin Roche",
+          "lead": "Jan Wilson"
+        },
+        "runnerUp": {
+          "skip": "Iain Buchanan",
+          "third": "David Buchanan",
+          "second": "Jennifer Ward",
+          "lead": "Emily Ward",
+          "note": "Runners-up receive the Mercer Rosebowl"
+        }
+      },
+      {
+        "year": 2026,
+        "season": "2025-26",
+        "winner": {
+          "skip": "Jonathan Buchanan",
+          "third": "Erin Roche",
+          "second": "Stewart Carson",
+          "lead": "Matthew Gray"
+        },
+        "runnerUp": {
+          "skip": "David Haggart",
+          "third": "David Buchanan",
+          "second": "Emily Haggart",
+          "lead": "Stewart Turner",
+          "note": "Runners-up receive the Mercer Rosebowl"
+        }
+      }
+    ]
+  },
+  "wilson": {
+    "name": "The Bob Wilson Knock-Out Cup",
+    "format": "Four-person team knock-out",
+    "type": "team",
+    "results": [
+      {
+        "year": 2004,
+        "season": "2003-04",
+        "winner": {
+          "skip": "Iain Paterson",
+          "team": ["Shaw Paterson", "Bill McLenachan", "Sandra Paterson"],
+          "positionsLabelled": false
+        },
+        "runnerUp": {
+          "skip": "David Paterson",
+          "team": [],
+          "note": "Other members of the runner-up team not recorded in the archived source"
+        }
+      },
+      {
+        "year": 2006,
+        "season": "2005-06",
+        "winner": {
+          "skip": "Iain Buchanan",
+          "third": "Fiona Johnston",
+          "second": "William Alexander",
+          "lead": "Lorraine McCoull"
+        },
+        "runnerUp": {
+          "skip": "David Haggart",
+          "third": "Peter Cleland",
+          "second": "Hazel Lean",
+          "lead": "Alison Turner"
+        },
+        "resultNote": "Won on a count of ends after tying 6-6 in the final"
+      },
+      {
+        "year": 2007,
+        "season": "2006-07",
+        "winner": {
+          "skip": "Andy Williamson",
+          "third": "Jim McCoull",
+          "second": "Moira Gartshore",
+          "lead": "Lorraine McCoull"
+        },
+        "runnerUp": {
+          "skip": "David Haggart",
+          "third": "Anne Hood",
+          "second": "Fiona Johnston",
+          "lead": "Alison Turner"
+        }
+      },
+      {
+        "year": 2008,
+        "season": "2007-08",
+        "winner": {
+          "skip": "Andy Williamson",
+          "third": "Alan Turner",
+          "second": "Lorraine McCoull",
+          "lead": "Alistair Fergus",
+          "note": "Positions from the archived \"including substitutions\" table"
+        },
+        "runnerUp": {
+          "skip": "David Haggart",
+          "third": "Davie Armstrong",
+          "second": "Peter Cleland",
+          "lead": "Alison Turner"
+        }
+      },
+      {
+        "year": 2009,
+        "season": "2008-09",
+        "winner": {
+          "skip": "Andy Williamson",
+          "lead": "Alison Turner",
+          "middle": ["Gillian Haggart", "Peter Cleland"]
+        },
+        "runnerUp": {
+          "skip": "Iain Buchanan",
+          "lead": "Lorraine McCoull",
+          "middle": ["Davie Armstrong", "Anne Hood"]
+        }
+      },
+      {
+        "year": 2010,
+        "season": "2009-10",
+        "winner": {
+          "skip": "Iain Buchanan",
+          "lead": "Alison Bell",
+          "middle": ["Alison Turner", "John Adkin"]
+        },
+        "runnerUp": {
+          "skip": "Jim McCoull",
+          "lead": "David Haggart",
+          "middle": ["Davie Armstrong", "Peter Cleland"]
+        }
+      },
+      {
+        "year": 2011,
+        "season": "2010-11",
+        "winner": {
+          "skip": "Andy Williamson",
+          "lead": "John Adkin",
+          "middle": ["Alison Bell", "Alan Turner"]
+        },
+        "runnerUp": {
+          "skip": "Gillian Haggart",
+          "lead": "Elizabeth Rough",
+          "middle": ["Alison Turner", "Hazel Lean"],
+          "note": "Hazel Lean substituted for Sarah Lean (originally the skip); Gillian Haggart played as skip"
+        }
+      },
+      {
+        "year": 2012,
+        "season": "2011-12",
+        "winner": {
+          "skip": "Alan Turner",
+          "team": ["Alison Turner", "Andy Muir", "Peter Cleland"],
+          "positionsLabelled": false,
+          "note": "Source labels only the skip"
+        },
+        "runnerUp": {
+          "skip": "Andy Williamson",
+          "lead": "Ian Lean",
+          "middle": ["John Adkin", "Iain Buchanan"]
+        }
+      },
+      {
+        "year": 2013,
+        "season": "2012-13",
+        "winner": {
+          "skip": "Jim McCoull",
+          "lead": "Ian Lean",
+          "middle": ["John Adkin", "Davie Armstrong"]
+        },
+        "runnerUp": {
+          "skip": "Andy Williamson",
+          "lead": "Anne Millar",
+          "middle": ["Andy Muir", "Gillian Haggart"]
+        }
+      },
+      {
+        "year": 2014,
+        "season": "2013-14",
+        "winner": {
+          "skip": "David Haggart",
+          "lead": "Davie Armstrong",
+          "middle": ["Andy Muir", "Alan Turner"]
+        },
+        "runnerUp": {
+          "skip": "Jim McCoull",
+          "lead": "Anne Millar",
+          "middle": ["Rebecca Muir", "John Adkin"]
+        }
+      },
+      {
+        "year": 2015,
+        "season": "2014-15",
+        "winner": {
+          "skip": "Iain Buchanan",
+          "lead": "Jean Armstrong",
+          "middle": ["Andy Muir", "Peter Cleland"]
+        },
+        "runnerUp": {
+          "skip": "Gillian Haggart",
+          "lead": "Jan Wilson",
+          "middle": ["Anne Millar", "Fiona Hetherington"]
+        }
+      },
+      {
+        "year": 2016,
+        "season": "2015-16",
+        "winner": {
+          "skip": "Andy Williamson",
+          "lead": "Alison Turner",
+          "middle": ["Kay Hamilton", "Jay Wilson"]
+        },
+        "runnerUp": {
+          "skip": "John Wilson",
+          "lead": "Tom Russell",
+          "middle": ["Andy Muir", "Gillian Haggart"]
+        }
+      },
+      {
+        "year": 2017,
+        "season": "2016-17",
+        "winner": {
+          "skip": "Jay Wilson",
+          "lead": "David Buchanan",
+          "middle": ["Stewart Carson", "Alan Turner"]
+        },
+        "runnerUp": {
+          "skip": "Iain Buchanan",
+          "lead": "Ian Lean",
+          "middle": ["Alison Turner", "John Wilson"]
+        }
+      },
+      {
+        "year": 2018,
+        "season": "2017-18",
+        "winner": {
+          "skip": "Andy Muir",
+          "lead": "Jonathan Buchanan",
+          "middle": ["Stewart Carson", "Alan Turner"]
+        },
+        "runnerUp": {
+          "skip": "Jay Wilson",
+          "lead": "Ian Lean",
+          "middle": ["John Adkin", "Alison Bell"]
+        }
+      },
+      {
+        "year": 2022,
+        "season": "2021-22",
+        "winner": {
+          "skip": "Alan Turner",
+          "third": "Iain Buchanan",
+          "second": "Lindsey Haggart",
+          "lead": "Stewart Carson",
+          "note": "Iain Buchanan substituted for David Haggart (Third on the fixture card); Stewart Carson substituted for Joyce Cowie (Lead on the fixture card)"
+        },
+        "runnerUp": null,
+        "runnerUpNote": "Runner-up not supplied"
+      },
+      {
+        "year": 2023,
+        "season": "2022-23",
+        "winner": {
+          "skip": "Sarah Lean",
+          "third": "David Buchanan",
+          "second": "Alison Turner",
+          "lead": "Joyce Cowie",
+          "note": "Alison Turner substituted for Lindsey Haggart, who appeared as Second on the fixture card"
+        },
+        "runnerUp": null,
+        "runnerUpNote": "Runner-up not supplied"
+      },
+      {
+        "year": 2024,
+        "season": "2023-24",
+        "winner": {
+          "skip": "Gillian Haggart",
+          "third": "David Haggart",
+          "second": "Emily Haggart",
+          "lead": "Sophie Martin",
+          "note": "David Haggart substituted for Andy Williamson (Third on the fixture card) and Sophie Martin substituted for Alison Turner (Lead on the fixture card)"
+        },
+        "runnerUp": null,
+        "runnerUpNote": "Runner-up not supplied"
+      },
+      {
+        "year": 2025,
+        "season": "2024-25",
+        "winner": {
+          "skip": "David Buchanan",
+          "third": "Michael Barr",
+          "second": "Emily Haggart",
+          "lead": "Emily Ward",
+          "note": "Michael Barr substituted for David Haggart, who appeared as Third on the fixture card"
+        },
+        "runnerUp": {
+          "skip": "John Wilson",
+          "third": "Alan Turner",
+          "second": "Stewart Turner",
+          "lead": "Jan Wilson"
+        }
+      },
+      {
+        "year": 2026,
+        "season": "2025-26",
+        "winner": {
+          "skip": "Iain Buchanan",
+          "third": "David Haggart",
+          "second": "Emily Ward",
+          "lead": "Lindsey Haggart"
+        },
+        "runnerUp": null,
+        "runnerUpNote": "Runner-up not supplied"
+      }
+    ]
+  },
+  "mccall": {
+    "name": "The McCall Salver",
+    "format": "Two-person pairs competition",
+    "type": "pairs",
+    "results": [
+      {
+        "year": 2006,
+        "season": "2005-06",
+        "winner": {
+          "players": ["Fraser McCoull", "Moira Gartshore"],
+          "note": "Moira Gartshore substituted for Ian Lean"
+        },
+        "runnerUp": {
+          "players": ["Andy Williamson", "Alan Turner"]
+        }
+      },
+      {
+        "year": 2007,
+        "season": "2006-07",
+        "winner": {
+          "players": ["Iain Buchanan", "Alan Turner"]
+        },
+        "runnerUp": {
+          "players": ["Fiona Hetherington", "Joyce Cowie"],
+          "note": "Fiona Hetherington substituted for Anne Hood in the final"
+        }
+      },
+      {
+        "year": 2008,
+        "season": "2007-08",
+        "winner": {
+          "players": ["Anne Hood", "Alison Bell"],
+          "note": "Anne Hood substituted for David Haggart"
+        },
+        "runnerUp": {
+          "players": ["Andy Muir", "Iain Buchanan"]
+        }
+      },
+      {
+        "year": 2009,
+        "season": "2008-09",
+        "winner": {
+          "players": ["Anne Hood", "Douglas Wright"]
+        },
+        "runnerUp": {
+          "players": ["Joyce Cowie", "Iain Buchanan"]
+        }
+      },
+      {
+        "year": 2010,
+        "season": "2009-10",
+        "winner": {
+          "players": ["John Adkin", "Andy Williamson"]
+        },
+        "runnerUp": {
+          "players": ["Joyce Cowie", "Iain Buchanan"]
+        }
+      },
+      {
+        "year": 2011,
+        "season": "2010-11",
+        "winner": {
+          "players": ["Andy Williamson", "Alan Murdoch"]
+        },
+        "runnerUp": {
+          "players": ["Joyce Cowie", "Iain Buchanan"]
+        }
+      },
+      {
+        "year": 2012,
+        "season": "2011-12",
+        "winner": {
+          "players": ["Iain Buchanan", "Alan Turner"]
+        },
+        "runnerUp": {
+          "players": ["Gillian Haggart", "Richard Wilson"]
+        }
+      },
+      {
+        "year": 2013,
+        "season": "2012-13",
+        "winner": {
+          "players": ["Phil Biggerstaff", "Andy Williamson"]
+        },
+        "runnerUp": {
+          "players": ["Andy Muir", "Richard Wilson"]
+        }
+      },
+      {
+        "year": 2014,
+        "season": "2013-14",
+        "winner": {
+          "players": ["Alan Murdoch", "Andy Muir"]
+        },
+        "runnerUp": {
+          "players": ["David Morgan", "Jim Sellar"]
+        }
+      },
+      {
+        "year": 2015,
+        "season": "2014-15",
+        "winner": {
+          "players": ["Andy Muir", "Iain Buchanan"]
+        },
+        "runnerUp": {
+          "players": ["John Wilson", "Andy Williamson"]
+        }
+      },
+      {
+        "year": 2016,
+        "season": "2015-16",
+        "winner": {
+          "players": ["Jay Wilson", "John Wilson"]
+        },
+        "runnerUp": {
+          "players": ["Andy Muir", "Alison Turner"]
+        }
+      },
+      {
+        "year": 2017,
+        "season": "2016-17",
+        "winner": {
+          "players": ["David Buchanan", "Andy Williamson"]
+        },
+        "runnerUp": {
+          "players": ["Joyce Cowie", "David Haggart"]
+        }
+      },
+      {
+        "year": 2018,
+        "season": "2017-18",
+        "winner": {
+          "players": ["David Buchanan", "Andy Muir"],
+          "note": "David Buchanan substituted for Callum Buchan"
+        },
+        "runnerUp": {
+          "players": ["John Wilson", "Andy Williamson"]
+        }
+      },
+      {
+        "year": 2019,
+        "season": "2018-19",
+        "winner": {
+          "players": ["Stewart Carson", "David Buchanan"]
+        },
+        "runnerUp": {
+          "players": ["Alison Bell", "Alan Turner"]
+        }
+      },
+      {
+        "year": 2022,
+        "season": "2021-22",
+        "winner": {
+          "players": ["Holly Burke", "Michael Barr"],
+          "note": "Michael Barr substituted for Iain Buchanan, who was Holly Burke's partner on the fixture card"
+        },
+        "runnerUp": {
+          "players": ["Alison Bell", "Stewart Carson"],
+          "note": "Alison Bell substituted for Gillian Haggart, who was Stewart Carson's partner on the fixture card"
+        }
+      },
+      {
+        "year": 2023,
+        "season": "2022-23",
+        "winner": {
+          "players": ["Jonathan Buchanan", "Stewart Carson"]
+        },
+        "runnerUp": {
+          "players": ["Holly Burke", "Alan Turner"]
+        }
+      },
+      {
+        "year": 2024,
+        "season": "2023-24",
+        "winner": {
+          "players": ["Jonathan Buchanan", "Stewart Carson"]
+        },
+        "runnerUp": null,
+        "runnerUpNote": "Runner-up not supplied"
+      },
+      {
+        "year": 2025,
+        "season": "2024-25",
+        "winner": {
+          "players": ["Jonathan Buchanan", "Lindsey Haggart"]
+        },
+        "runnerUp": {
+          "players": ["Iain Buchanan", "Stewart Turner"]
+        }
+      },
+      {
+        "year": 2026,
+        "season": "2025-26",
+        "winner": {
+          "players": ["Iain Buchanan", "Joyce Cowie"]
+        },
+        "runnerUp": {
+          "players": ["Jonathan Buchanan", "David Buchanan"]
+        }
+      }
+    ]
+  },
+  "cleland": {
+    "name": "The Cleland Trophy",
+    "format": "Four-person team league",
+    "type": "team",
+    "results": [
+      {
+        "year": 2004,
+        "season": "2003-04",
+        "winner": {
+          "skip": "Bill Downie",
+          "team": ["John Smillie", "Mary Mason", "Alistair Fergus"],
+          "positionsLabelled": false
+        },
+        "runnerUp": null,
+        "runnerUpNote": "Runner-up not recorded in the archived source"
+      },
+      {
+        "year": 2007,
+        "season": "2006-07",
+        "winner": {
+          "skip": "Anne Hood",
+          "lead": "John Smillie",
+          "middle": ["Jane Armstrong", "Bill Downie"]
+        },
+        "runnerUp": {
+          "skip": "Peter Cleland",
+          "lead": "Iain Buchanan",
+          "middle": ["Andy Muir", "Frazer Harrison"]
+        }
+      },
+      {
+        "year": 2008,
+        "season": "2007-08",
+        "winner": {
+          "skip": "Jim McCoull",
+          "lead": "Douglas Wright",
+          "middle": ["Alison Bell", "John Adkin"]
+        },
+        "runnerUp": {
+          "skip": "Peter Cleland",
+          "lead": "Gillian Haggart",
+          "middle": ["Andy Muir", "Phil Johnston"]
+        }
+      },
+      {
+        "year": 2009,
+        "season": "2008-09",
+        "winner": {
+          "skip": "Peter Cleland",
+          "lead": "Douglas Wright",
+          "middle": ["Alison Bell", "John Adkin"]
+        },
+        "runnerUp": {
+          "skip": "Anne Hood",
+          "lead": "John Smillie",
+          "middle": ["Alison Turner", "Frazer Harrison / Alan Murdoch"],
+          "note": "Frazer Harrison and Alan Murdoch both appear in the source, indicating a substitution across the competition"
+        }
+      },
+      {
+        "year": 2010,
+        "season": "2009-10",
+        "winner": {
+          "skip": "Douglas Wright",
+          "lead": "Iain Buchanan",
+          "middle": ["Alison Bell", "Davie Armstrong"]
+        },
+        "runnerUp": {
+          "skip": "John Adkin",
+          "lead": "John Smillie",
+          "middle": ["Ian Lean", "Catriona Fergus"]
+        }
+      },
+      {
+        "year": 2011,
+        "season": "2010-11",
+        "winner": {
+          "skip": "Alan Murdoch",
+          "lead": "John Smillie",
+          "middle": ["John Adkin", "Joyce Cowie"]
+        },
+        "runnerUp": {
+          "skip": "Anne Hood",
+          "lead": "Iain Buchanan",
+          "middle": ["Alison Bell", "Rebecca Muir"]
+        }
+      },
+      {
+        "year": 2012,
+        "season": "2011-12",
+        "winner": {
+          "skip": "John Adkin",
+          "lead": "Andy Williamson",
+          "middle": ["Alison Turner", "David Morgan"]
+        },
+        "runnerUp": {
+          "skip": "Iain Buchanan",
+          "lead": "Jim McCoull",
+          "middle": ["Joyce Cowie", "Jim Sellar"]
+        }
+      },
+      {
+        "year": 2013,
+        "season": "2012-13",
+        "winner": {
+          "skip": "Andy Muir",
+          "lead": "Alan Turner",
+          "middle": ["Peter Cleland", "Joyce Cowie"]
+        },
+        "runnerUp": {
+          "skip": "Iain Buchanan",
+          "lead": "Andy Williamson",
+          "middle": ["Alison Turner", "Davie Armstrong"]
+        }
+      },
+      {
+        "year": 2014,
+        "season": "2013-14",
+        "winner": {
+          "skip": "Iain Buchanan",
+          "lead": "David McLeod",
+          "middle": ["Alison Turner", "Peter Cleland"]
+        },
+        "runnerUp": {
+          "skip": "John Adkin",
+          "lead": "Alan Turner",
+          "middle": ["Anne Millar", "Alison Bell"]
+        }
+      },
+      {
+        "year": 2015,
+        "season": "2014-15",
+        "winner": {
+          "skip": "Alan Murdoch",
+          "lead": "Alan Turner",
+          "middle": ["Anne Millar", "Andy Muir"]
+        },
+        "runnerUp": {
+          "skip": "Andy Williamson",
+          "lead": "Jim Sellar",
+          "middle": ["Phil Biggerstaff", "Ian Lean"]
+        }
+      },
+      {
+        "year": 2016,
+        "season": "2015-16",
+        "winner": {
+          "skip": "Alan Turner",
+          "lead": "John Wilson",
+          "middle": ["Peter Cleland", "Anne Millar"]
+        },
+        "runnerUp": {
+          "skip": "Alan Murdoch",
+          "lead": "Alison Turner",
+          "middle": ["Jay Wilson", "Ian Lean"]
+        }
+      },
+      {
+        "year": 2017,
+        "season": "2016-17",
+        "winner": {
+          "skip": "John Adkin",
+          "team": ["Davie Armstrong", "Christopher Taylor", "Alan Murdoch"],
+          "positionsLabelled": false,
+          "note": "Source labels lead (Davie Armstrong) but not the skip; John Adkin listed last (conventionally the skip position)"
+        },
+        "runnerUp": {
+          "skip": "Andy Muir",
+          "team": ["Peter Cleland", "Jonathan Buchanan", "Alison Turner"],
+          "positionsLabelled": false,
+          "note": "Source labels lead (Peter Cleland) but not the skip"
+        }
+      },
+      {
+        "year": 2018,
+        "season": "2017-18",
+        "winner": {
+          "skip": "Alan Murdoch",
+          "team": ["Gillian Haggart", "Anne Millar", "John Adkin"],
+          "positionsLabelled": false,
+          "note": "Source labels only the skip"
+        },
+        "runnerUp": {
+          "skip": "John Wilson",
+          "team": ["Andy Williamson", "Jonathan Buchanan", "Alison Bell"],
+          "positionsLabelled": false,
+          "note": "Source labels only the skip"
+        }
+      },
+      {
+        "year": 2019,
+        "season": "2018-19",
+        "winner": {
+          "skip": "David Buchanan",
+          "lead": "Sarah Lean",
+          "middle": ["Joyce Cowie", "John Adkin"]
+        },
+        "runnerUp": {
+          "skip": "Iain Buchanan",
+          "lead": "Tom Russell",
+          "middle": ["Stewart Carson", "Fiona Hetherington"]
+        }
+      },
+      {
+        "year": 2022,
+        "season": "2021-22",
+        "winner": {
+          "skip": "Sarah Lean",
+          "third": "Holly Burke",
+          "second": "Ellie Campbell",
+          "lead": "Alan Turner"
+        },
+        "runnerUp": {
+          "skip": "Alison Bell",
+          "third": "Joyce Cowie",
+          "second": "Alison Turner",
+          "lead": "David Buchanan",
+          "note": "Runners-up receive the Clark Trophy"
+        }
+      },
+      {
+        "year": 2023,
+        "season": "2022-23",
+        "winner": {
+          "skip": "Iain Buchanan",
+          "third": "Lindsey Haggart",
+          "second": "Alison Turner",
+          "lead": "Joyce Cowie"
+        },
+        "runnerUp": {
+          "skip": "Alan Turner",
+          "third": "Holly Burke",
+          "second": "Emily Haggart",
+          "lead": "Sarah Lean",
+          "note": "Runners-up receive the Clark Trophy"
+        }
+      },
+      {
+        "year": 2024,
+        "season": "2023-24",
+        "winner": {
+          "skip": "Charlie Murray",
+          "third": "Lindsey Haggart",
+          "second": "Alison Turner",
+          "lead": "Alan Turner",
+          "note": "Charlie Murray substituted for Andy Williamson (Skip on the fixture card)"
+        },
+        "runnerUp": {
+          "skip": "Alison Bell",
+          "third": "Joyce Cowie",
+          "second": "Sophie Martin",
+          "lead": "Iain Buchanan",
+          "note": "Runners-up receive the Clark Trophy"
+        }
+      },
+      {
+        "year": 2025,
+        "season": "2024-25",
+        "winner": {
+          "skip": "Alan Turner",
+          "third": "Jennifer Ward",
+          "second": "Erin Roche",
+          "lead": "Sarah Lean"
+        },
+        "runnerUp": {
+          "skip": "Gillian Haggart",
+          "third": "Joyce Cowie",
+          "second": "Sophie Martin",
+          "lead": "Iain Buchanan",
+          "note": "Runners-up receive the Clark Trophy"
+        }
+      },
+      {
+        "year": 2026,
+        "season": "2025-26",
+        "winner": {
+          "skip": "Gillian Haggart",
+          "third": "Emily Haggart",
+          "second": "Stewart Turner",
+          "lead": "Iain Buchanan"
+        },
+        "runnerUp": {
+          "skip": "Alan Turner",
+          "third": "Erin Roche",
+          "second": "Callum Joplin",
+          "lead": "John Wilson",
+          "note": "Runners-up receive the Clark Trophy"
+        }
+      }
+    ]
+  }
+}
