@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
 import competitions from "../data/fixtures.json";
 
 const fmtDate = (d) =>
@@ -185,6 +186,28 @@ const tabs = competitions.map((c) => ({ slug: c.slug, label: c.name }));
         class="underline"
         href="/scores/">scores page</a
       > for past results and league standings.
+
+      <div class="mt-10 max-w-2xl">
+        <Card title="Drawing teams for your club?">
+          <p class="mb-4">
+            <a
+              class="underline text-stone hover:text-accent"
+              href="https://www.rinkdraw.com/"
+              target="_blank"
+              rel="noopener">RinkDraw</a
+            > is a free online tool for curling clubs. Enter your members, pick fours,
+            triples or pairs, lock skips and thirds where needed, and export team
+            sheets ready for your syllabus. Built by a fellow Scottish curler — no
+            sign-up, no data stored.
+          </p>
+          <a
+            class="font-semibold text-accent hover:text-orange-800"
+            href="https://www.rinkdraw.com/"
+            target="_blank"
+            rel="noopener">Visit RinkDraw →</a
+          >
+        </Card>
+      </div>
     </p>
   </section>
 </BaseLayout>
